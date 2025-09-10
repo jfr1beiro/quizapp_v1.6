@@ -56170,5 +56170,305 @@
     "legenda": "📚 Material extraído de aula presencial",
     "prioridade_selecao": 0.7,
     "id_professor": "PROF_19"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Segundo explicado em aula sobre gametogênese masculina, qual é o fenômeno responsável pela produção e amadurecimento dos espermatozoídes nos túbulos seminíferos?",
+    "opcoes": [
+      "Espermatogênese",
+      "Ovogênese",
+      "Foliculogênese",
+      "Gametogênese geral"
+    ],
+    "resposta_correta": "Espermatogênese",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: A espermatogênese é o processo específico de formação e amadurecimento dos espermatozoídes que ocorre nos túbulos seminíferos, envolvendo as fases de divisão das espermatogônias até a diferenciação em espermatozoídes maduros.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_1"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Conforme apresentado nos apontamentos sobre anatomia testicular, quais células são responsáveis pela produção de testosterona no tecido intersticial dos testículos?",
+    "opcoes": [
+      "Células de Leydig",
+      "Células de Sertoli",
+      "Espermatogônias",
+      "Espermatócitos primários"
+    ],
+    "resposta_correta": "Células de Leydig",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: As células de Leydig, localizadas no tecido intersticial dos testículos, são especializadas na produção de testosterona sob estímulo do hormônio LH da adenohipófise.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_2"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Segundo explicado em aula sobre controle hormonal da reprodução masculina, qual hormônio hipofisário estimula especificamente as células de Leydig a produzirem testosterona?",
+    "opcoes": [
+      "LH (Hormônio Luteinizante)",
+      "FSH (Hormônio Folículo Estimulante)",
+      "GnRH (Hormônio Liberador de Gonadotrofinas)",
+      "Prolactina"
+    ],
+    "resposta_correta": "LH (Hormônio Luteinizante)",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: O LH (Hormônio Luteinizante) é secretado pela adenohipófise e tem função específica de estimular as células de Leydig, promovendo a síntese e liberação de testosterona.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_3"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Conforme apresentado nos apontamentos sobre anatomia do sistema reprodutor masculino, quais são as três principais glândulas acessórias mencionadas na aula?",
+    "opcoes": [
+      "Vesícula seminal, próstata e glândulas bulbouretrais",
+      "Próstata, epidídimo e ducto deferente",
+      "Testículos, próstata e vesícula seminal",
+      "Epidídimo, próstata e uretra"
+    ],
+    "resposta_correta": "Vesícula seminal, próstata e glândulas bulbouretrais",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: As três glândulas acessórias do sistema reprodutor masculino são vesícula seminal (maior contribuição volumétrica), próstata (secreção alcalina) e glândulas bulbouretrais (lubrificação pré-ejaculatória).",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_4"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Segundo explicado em aula sobre fisiologia da ereção, qual substância vasoativa é fundamental no mecanismo de relaxamento da musculatura lisa dos corpos cavernosos?",
+    "opcoes": [
+      "Óxido nítrico (NO)",
+      "Acetilcolina",
+      "Adrenalina",
+      "Histamina"
+    ],
+    "resposta_correta": "Óxido nítrico (NO)",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: O óxido nítrico (NO) é a substância chave na ereção, sendo liberado por estímulo parassimpático e promovendo vasodilatação através do relaxamento da musculatura lisa dos corpos cavernosos.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_5"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Conforme apresentado nos apontamentos sobre anatomia peniana, quais são as duas principais estruturas eréteis que compõem o corpo do pênis?",
+    "opcoes": [
+      "Corpo cavernoso e corpo esponjoso",
+      "Glande e corpo cavernoso",
+      "Corpo esponjoso e uretra",
+      "Prepúcio e corpo cavernoso"
+    ],
+    "resposta_correta": "Corpo cavernoso e corpo esponjoso",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: O pênis é constituído por dois corpos cavernosos (dorsais e laterais) e um corpo esponjoso (ventral) que envolve a uretra peniana, sendo todas estruturas com capacidade erétil.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_6"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Segundo explicado em aula sobre controle neurológico da ereção, qual divisão do sistema nervoso autônomo é predominantemente responsável por este mecanismo?",
+    "opcoes": [
+      "Sistema nervoso parassimpático",
+      "Sistema nervoso simpático",
+      "Sistema nervoso somático",
+      "Sistema nervoso entérico"
+    ],
+    "resposta_correta": "Sistema nervoso parassimpático",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: O sistema nervoso parassimpático é predominante na ereção, promovendo liberação de óxido nítrico e inibindo o tônus simpático vasoconstritor, permitindo o enchimento vascular dos corpos eréteis.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_7"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Conforme apresentado nos apontamentos sobre gametogênese feminina, qual é o termo específico para o processo de formação dos gametas femininos?",
+    "opcoes": [
+      "Ovogênese",
+      "Espermatogênese",
+      "Foliculogênese",
+      "Oogênese"
+    ],
+    "resposta_correta": "Ovogênese",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: A ovogênese é o processo específico de formação e maturação dos gametas femininos (ovócitos), iniciando-se durante o desenvolvimento embrionário e continuando ciclicamente durante a vida reprodutiva.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_8"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Segundo explicado em aula sobre desenvolvimento oocitário, em qual estágio meiótico o ovócito permanece em estado de latência por períodos prolongados?",
+    "opcoes": [
+      "Ovócito I (prófase I)",
+      "Ovócito II (metáfase II)",
+      "Ovogônia (mitose)",
+      "Óvulo maduro (completo)"
+    ],
+    "resposta_correta": "Ovócito I (prófase I)",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: O ovócito I permanece arrestado na prófase I da primeira divisão meiótica desde o desenvolvimento fetal até a ovulação, podendo permanecer neste estado latente por décadas.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_9"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Conforme apresentado nos apontamentos sobre fisiologia ovariana, qual é o nome do fenômeno onde o ovócito maduro é liberado do folículo dominante?",
+    "opcoes": [
+      "Ovulação",
+      "Ovogênese",
+      "Foliculogênese",
+      "Luteinização"
+    ],
+    "resposta_correta": "Ovulação",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: A ovulação é o processo pelo qual o ovócito maduro (ovócito II) é liberado do folículo ovariano dominante, sendo essencial para que ocorra a possibilidade de fecundação.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_10"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Segundo explicado em aula sobre transporte gamético feminino, para qual estrutura anatômica se dirige o ovócito imediatamente após a ovulação?",
+    "opcoes": [
+      "Tuba uterina",
+      "Útero diretamente",
+      "Cavidade peritoneal",
+      "Colo uterino"
+    ],
+    "resposta_correta": "Tuba uterina",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: Após a ovulação, o ovócito é captado pelas fímbrias da tuba uterina, onde normalmente ocorre a fecundação na região ampular, sendo posteriormente transportado ao útero.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_11"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Conforme apresentado nos apontamentos sobre regulação da espermatogênese, quais elementos celulares e hormonais estimulam a divisão e amadurecimento dos espermatozoídes?",
+    "opcoes": [
+      "Testosterona e células de Sertoli",
+      "Apenas hormônio LH",
+      "Apenas células de Leydig",
+      "FSH e células germinativas"
+    ],
+    "resposta_correta": "Testosterona e células de Sertoli",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: A espermatogênese é regulada pela testosterona (das células de Leydig) em sinergia com as células de Sertoli, que fornecem suporte estrutural, nutricional e hormonal aos espermatozoídes em desenvolvimento.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_12"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Segundo explicado em aula sobre desenvolvimento oocitário, qual é a sequência cronológica correta da maturação dos gametas femininos?",
+    "opcoes": [
+      "Ovogônia → Ovócito I → Ovócito II",
+      "Ovócito I → Ovogônia → Ovócito II",
+      "Ovócito II → Ovócito I → Ovogônia",
+      "Ovogônia → Ovócito II → Ovócito I"
+    ],
+    "resposta_correta": "Ovogônia → Ovócito I → Ovócito II",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: A sequência correta é ovogônia (célula germinativa primordial mitótica) → ovócito I (arrestado em prófase I) → ovócito II (formado na ovulação após primeira divisão meiótica).",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_13"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Conforme apresentado nos apontamentos sobre função da testosterona, qual é sua principal ação fisiológica na reprodução masculina?",
+    "opcoes": [
+      "Estimular divisão e amadurecimento de espermatozoídes",
+      "Regular apenas características sexuais secundárias",
+      "Controlar exclusivamente a libido masculina",
+      "Modular apenas o comportamento reprodutivo"
+    ],
+    "resposta_correta": "Estimular divisão e amadurecimento de espermatozoídes",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: A testosterona tem como função primária na reprodução estimular e manter a espermatogênese, sendo essencial para a divisão celular e diferenciação dos espermatozoídes nos túbulos seminíferos.",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_14"
+  },
+  {
+    "pergunta": "👨‍🏫 **[PROFESSOR]** Segundo explicado em aula sobre fases da gametogênese masculina, quais são as duas principais etapas do processo de amadurecimento espermático mencionadas nos apontamentos?",
+    "opcoes": [
+      "Fase inicial e fase íntima",
+      "Fase mitótica e fase meiótica",
+      "Fase proliferativa e fase diferenciativa",
+      "Fase germinativa e fase maturativa"
+    ],
+    "resposta_correta": "Fase inicial e fase íntima",
+    "categoria": "Reprodução e Gametogênese",
+    "periodo": 2,
+    "disciplina": "MORFOFISIOLOGIA II",
+    "dificuldade": "medio",
+    "explicacao": "Baseado nos apontamentos do professor: O amadurecimento dos espermatozoídes ocorre em duas fases distintas: fase inicial (caracterizada pela proliferação das espermatogônias) e fase íntima (diferenciação final em espermatozoídes funcionais maduros).",
+    "referencia": "Apontamentos Prof. - Reprodução",
+    "fonte_material": "professor",
+    "legenda": "📚 Material extraído de aula presencial",
+    "prioridade_selecao": 0.7,
+    "id_professor": "PROF_15"
   }
 ]
