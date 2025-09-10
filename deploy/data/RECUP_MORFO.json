@@ -1,0 +1,441 @@
+{
+    "MORFOFISIOLOGIA DOS SISTEMAS I": {
+      "Unidade 1 - Tema 2: Sistema Esquelético": [
+        {
+          "pergunta": "Qual das funções abaixo não é desempenhada diretamente pelo sistema esquelético humano?",
+          "opcoes": [
+            "Produção de células sanguíneas",
+            "Proteção de órgãos internos",
+            "Armazenamento de minerais",
+            "Coordenação dos movimentos voluntários"
+          ],
+          "resposta_correta": "Coordenação dos movimentos voluntários",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "A coordenação dos movimentos voluntários é função do sistema nervoso, enquanto o esquelético atua na sustentação, movimentação, proteção e hematopoiese.",
+          "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana Sistêmica e Segmentar. 3ª ed. São Paulo: Atheneu, 2011."
+        },
+        {
+          "pergunta": "Qual é a principal característica dos ossos pneumáticos encontrados em aves?",
+          "opcoes": [
+            "São ossos com grande densidade mineral",
+            "São preenchidos por medula vermelha",
+            "Apresentam cavidades cheias de ar",
+            "Contêm altas concentrações de cálcio iônico"
+          ],
+          "resposta_correta": "Apresentam cavidades cheias de ar",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "Os ossos pneumáticos são leves e possuem cavidades preenchidas por ar, facilitando o voo nas aves ao reduzir o peso corporal.",
+          "referencia": "HANSEN, J.T. Netter’s Clinical Anatomy. 4ª ed. Elsevier, 2019."
+        },
+        {
+          "pergunta": "A função hematopoética do esqueleto humano é desempenhada principalmente por:",
+          "opcoes": [
+            "Ossos curtos",
+            "Cartilagens articulares",
+            "Medula óssea vermelha",
+            "Periósteo"
+          ],
+          "resposta_correta": "Medula óssea vermelha",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "A medula óssea vermelha é responsável pela produção de células sanguíneas, processo conhecido como hematopoiese.",
+          "referencia": "MAISTRO, R.R. Aspectos biológicos: as lesões no sistema esquelético de futebolistas. UNESP, 2022."
+        },
+        {
+          "pergunta": "Os ossos do esqueleto apendicular incluem:",
+          "opcoes": [
+            "Crânio, costelas e coluna vertebral",
+            "Fêmur, úmero e clavícula",
+            "Esterno, escápula e sacro",
+            "Vértebras, esterno e bacia"
+          ],
+          "resposta_correta": "Fêmur, úmero e clavícula",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "O esqueleto apendicular inclui os ossos dos membros superiores e inferiores, como úmero, fêmur e clavícula.",
+          "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+        },
+        {
+          "pergunta": "Qual é a diferença entre ossos longos e ossos laminares?",
+          "opcoes": [
+            "Ossos laminares são mais densos que os longos",
+            "Ossos longos têm o comprimento maior que a largura, enquanto os laminares têm largura e comprimento semelhantes",
+            "Ossos longos armazenam gordura, e os laminares produzem células sanguíneas",
+            "Ossos longos estão no crânio e os laminares no fêmur"
+          ],
+          "resposta_correta": "Ossos longos têm o comprimento maior que a largura, enquanto os laminares têm largura e comprimento semelhantes",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "A classificação morfológica dos ossos leva em consideração suas proporções; ossos longos como o fêmur têm comprimento predominante.",
+          "referencia": "POZZOBON, A. et al. Anatomia na prática. Univates, 2015."
+        },
+        {
+          "pergunta": "O osso sesamoide mais conhecido do corpo humano é:",
+          "opcoes": [
+            "Fêmur",
+            "Patela",
+            "Tíbia",
+            "Escápula"
+          ],
+          "resposta_correta": "Patela",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "A patela é o maior osso sesamoide do corpo, desenvolvendo-se dentro de tendões e facilitando o movimento articular.",
+          "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+        },
+        {
+          "pergunta": "Durante o desenvolvimento, a hematopoiese ocorre principalmente no:",
+          "opcoes": [
+            "Periósteo dos ossos longos",
+            "Canal medular do crânio",
+            "Interior dos ossos longos como o fêmur",
+            "Discos intervertebrais"
+          ],
+          "resposta_correta": "Interior dos ossos longos como o fêmur",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "Nos primeiros anos de vida, a medula óssea vermelha se concentra em ossos longos como o fêmur, local de intensa hematopoiese.",
+          "referencia": "MAISTRO, R.R. Aspectos biológicos: as lesões no sistema esquelético de futebolistas. UNESP, 2022."
+        },
+        {
+          "pergunta": "As suturas do crânio são classificadas como:",
+          "opcoes": [
+            "Articulações sinoviais",
+            "Fendas ósseas",
+            "Locais de fusão óssea",
+            "Fraturas fisiológicas"
+          ],
+          "resposta_correta": "Locais de fusão óssea",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "As suturas são junções entre ossos do crânio que se fundem ao longo do crescimento, não permitindo movimentação.",
+          "referencia": "HANSEN, J.T. Netter’s Clinical Anatomy. Elsevier, 2019."
+        },
+        {
+          "pergunta": "Qual das estruturas a seguir é considerada um acidente ósseo que permite a passagem de vasos e nervos?",
+          "opcoes": [
+            "Forame",
+            "Crista",
+            "Tubérculo",
+            "Tróclea"
+          ],
+          "resposta_correta": "Forame",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "Forames são aberturas nos ossos por onde passam nervos e vasos sanguíneos, caracterizando acidentes ósseos.",
+          "referencia": "POZZOBON, A. et al. Anatomia na prática. Univates, 2015."
+        },
+        {
+          "pergunta": "A osteologia estuda especificamente:",
+          "opcoes": [
+            "A morfologia dos tecidos musculares",
+            "As propriedades elétricas do sistema nervoso",
+            "A estrutura e função dos ossos",
+            "A vascularização dos órgãos internos"
+          ],
+          "resposta_correta": "A estrutura e função dos ossos",
+          "categoria": "Unidade 1",
+          "dificuldade": "medio",
+          "explicacao": "Osteologia é o ramo da anatomia que se dedica ao estudo dos ossos quanto à estrutura, classificação e função.",
+          "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+        },
+        {
+            "pergunta": "O que diferencia os ossos irregulares dos demais tipos morfológicos?",
+            "opcoes": [
+              "São sempre encontrados nos membros inferiores",
+              "Apresentam forma variada sem padrão geométrico definido",
+              "Estão localizados apenas no crânio",
+              "Possuem função exclusivamente hematopoética"
+            ],
+            "resposta_correta": "Apresentam forma variada sem padrão geométrico definido",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "Ossos irregulares, como as vértebras, não seguem um padrão de formato, por isso não se enquadram nas outras categorias morfológicas.",
+            "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+          },
+          {
+            "pergunta": "As saliências ósseas como tubérculos e processos têm como principal função:",
+            "opcoes": [
+              "Servir de passagem para vasos sanguíneos",
+              "Aumentar o atrito durante o movimento",
+              "Apoiar os órgãos internos",
+              "Fixar músculos e ligamentos"
+            ],
+            "resposta_correta": "Fixar músculos e ligamentos",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "As saliências ósseas funcionam como pontos de inserção muscular e ligamentar, contribuindo para o movimento.",
+            "referencia": "POZZOBON, A. et al. Anatomia na prática. Univates, 2015."
+          },
+          {
+            "pergunta": "O osso responsável por articular-se com o acetábulo na pelve é o:",
+            "opcoes": [
+              "Fêmur",
+              "Tíbia",
+              "Úmero",
+              "Rádio"
+            ],
+            "resposta_correta": "Fêmur",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "O fêmur articula-se com o acetábulo do osso ilíaco, formando a articulação coxofemoral (quadril).",
+            "referencia": "HANSEN, J.T. Netter’s Clinical Anatomy. Elsevier, 2019."
+          },
+          {
+            "pergunta": "Qual estrutura óssea é responsável por proteger o cérebro?",
+            "opcoes": [
+              "Clavícula",
+              "Esterno",
+              "Crânio",
+              "Coluna torácica"
+            ],
+            "resposta_correta": "Crânio",
+            "categoria": "Unidade 1",
+            "dificuldade": "facil",
+            "explicacao": "O crânio envolve e protege o encéfalo, sendo formado por diversos ossos interligados por suturas.",
+            "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+          },
+          {
+            "pergunta": "As cartilagens nas extremidades dos ossos longos têm como função principal:",
+            "opcoes": [
+              "Facilitar a produção de sangue",
+              "Reduzir o atrito nas articulações",
+              "Aumentar a rigidez da estrutura óssea",
+              "Permitir a contração muscular direta"
+            ],
+            "resposta_correta": "Reduzir o atrito nas articulações",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "As cartilagens articulares são lisas e resistentes, facilitando o movimento e evitando o desgaste ósseo.",
+            "referencia": "MAISTRO, R.R. Aspectos biológicos: as lesões no sistema esquelético de futebolistas. UNESP, 2022."
+          },
+          {
+            "pergunta": "Qual dos acidentes ósseos abaixo é uma depressão rasa que permite articulação com outro osso?",
+            "opcoes": [
+              "Tubérculo",
+              "Fóvea",
+              "Crista",
+              "Forame"
+            ],
+            "resposta_correta": "Fóvea",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "A fóvea é uma pequena depressão que geralmente serve de ponto de articulação ou inserção ligamentar.",
+            "referencia": "POZZOBON, A. et al. Anatomia na prática. Univates, 2015."
+          },
+          {
+            "pergunta": "Os ossos do esqueleto axial incluem:",
+            "opcoes": [
+              "Tíbia, fêmur e úmero",
+              "Crânio, vértebras e costelas",
+              "Clavícula, escápula e esterno",
+              "Rádio, ulna e patela"
+            ],
+            "resposta_correta": "Crânio, vértebras e costelas",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "O esqueleto axial compreende os ossos centrais do corpo, incluindo crânio, coluna vertebral e caixa torácica.",
+            "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+          },
+          {
+            "pergunta": "Os ossos sesamoides se desenvolvem:",
+            "opcoes": [
+              "Dentro de cavidades pneumáticas",
+              "Ao redor de forames nutritivos",
+              "No interior de ligamentos calcificados",
+              "Dentro de tendões, onde há atrito ou compressão"
+            ],
+            "resposta_correta": "Dentro de tendões, onde há atrito ou compressão",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "Ossos sesamoides como a patela se desenvolvem em tendões submetidos a forte pressão mecânica.",
+            "referencia": "HANSEN, J.T. Netter’s Clinical Anatomy. Elsevier, 2019."
+          },
+          {
+            "pergunta": "O que caracteriza os ossos longos?",
+            "opcoes": [
+              "São achatados e frágeis",
+              "Apresentam igual comprimento e espessura",
+              "Têm comprimento maior que a largura",
+              "Estão presentes apenas nos membros superiores"
+            ],
+            "resposta_correta": "Têm comprimento maior que a largura",
+            "categoria": "Unidade 1",
+            "dificuldade": "facil",
+            "explicacao": "A característica principal dos ossos longos é a proporção alongada, como visto no fêmur e úmero.",
+            "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+          },
+          {
+            "pergunta": "As fossas nos ossos têm como função principal:",
+            "opcoes": [
+              "Formar cavidades para armazenamento de gordura",
+              "Receber músculos ou órgãos temporariamente",
+              "Permitir inserção muscular ou passagem de estruturas",
+              "Conectar diretamente duas articulações móveis"
+            ],
+            "resposta_correta": "Permitir inserção muscular ou passagem de estruturas",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "Fossas são depressões anatômicas que acomodam músculos, órgãos ou nervos e vasos.",
+            "referencia": "POZZOBON, A. et al. Anatomia na prática. Univates, 2015."
+          },
+          {
+            "pergunta": "Qual é a principal função dos ossos do esqueleto axial?",
+            "opcoes": [
+              "Armazenar cálcio para o metabolismo muscular",
+              "Permitir movimentação precisa dos membros",
+              "Proteger o sistema nervoso central e órgãos vitais",
+              "Atuar na contração muscular voluntária"
+            ],
+            "resposta_correta": "Proteger o sistema nervoso central e órgãos vitais",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "O esqueleto axial protege estruturas centrais como o cérebro, coração e medula espinhal.",
+            "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+          },
+          {
+            "pergunta": "Durante a evolução, a postura bípede dos humanos exigiu adaptações ósseas como:",
+            "opcoes": [
+              "Redução do número de vértebras cervicais",
+              "Aumento do tamanho da caixa craniana",
+              "Reforço da bacia pélvica e curvaturas na coluna",
+              "Extensão dos ossos do membro superior"
+            ],
+            "resposta_correta": "Reforço da bacia pélvica e curvaturas na coluna",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "A postura ereta exigiu maior sustentação, resultando em adaptações estruturais na pelve e coluna.",
+            "referencia": "MAISTRO, R.R. Aspectos biológicos: as lesões no sistema esquelético de futebolistas. UNESP, 2022."
+          },
+          {
+            "pergunta": "As asas e os arcos ósseos são estruturas típicas encontradas em:",
+            "opcoes": [
+              "Vértebras",
+              "Esterno",
+              "Fêmur",
+              "Patela"
+            ],
+            "resposta_correta": "Vértebras",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "As vértebras apresentam asas e arcos ósseos que compõem a estrutura do canal vertebral.",
+            "referencia": "HANSEN, J.T. Netter’s Clinical Anatomy. Elsevier, 2019."
+          },
+          {
+            "pergunta": "Qual acidente ósseo funciona como ponto de articulação entre ossos e permite mobilidade?",
+            "opcoes": [
+              "Tróclea",
+              "Forame",
+              "Fossa",
+              "Tubérculo"
+            ],
+            "resposta_correta": "Tróclea",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "A tróclea é uma estrutura articular que se articula com outro osso, permitindo movimento angular.",
+            "referencia": "POZZOBON, A. et al. Anatomia na prática. Univates, 2015."
+          },
+          {
+            "pergunta": "A tuberosidade glútea está localizada em qual osso do corpo humano?",
+            "opcoes": [
+              "Fêmur",
+              "Úmero",
+              "Ilíaco",
+              "Tíbia"
+            ],
+            "resposta_correta": "Fêmur",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "A tuberosidade glútea é uma saliência do fêmur onde se inserem músculos da região glútea.",
+            "referencia": "HANSEN, J.T. Netter’s Clinical Anatomy. Elsevier, 2019."
+          },
+          {
+            "pergunta": "Os maléolos são estruturas ósseas associadas ao:",
+            "opcoes": [
+              "Joelho e articulação femoropatelar",
+              "Tornozelo e articulação tibiotársica",
+              "Ombro e articulação escapuloumeral",
+              "Quadril e articulação sacroilíaca"
+            ],
+            "resposta_correta": "Tornozelo e articulação tibiotársica",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "Maléolos são proeminências ósseas na tíbia e fíbula que formam a articulação do tornozelo.",
+            "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+          },
+          {
+            "pergunta": "O esterno é um osso pertencente ao:",
+            "opcoes": [
+              "Esqueleto apendicular superior",
+              "Esqueleto axial",
+              "Esqueleto apendicular inferior",
+              "Sistema muscular"
+            ],
+            "resposta_correta": "Esqueleto axial",
+            "categoria": "Unidade 1",
+            "dificuldade": "facil",
+            "explicacao": "O esterno é um osso plano do esqueleto axial localizado na parte anterior do tórax.",
+            "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+          },
+          {
+            "pergunta": "O osso que apresenta o processo coracoide é:",
+            "opcoes": [
+              "Escápula",
+              "Esterno",
+              "Fêmur",
+              "Clavícula"
+            ],
+            "resposta_correta": "Escápula",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "O processo coracoide é uma proeminência anatômica da escápula importante para fixação muscular.",
+            "referencia": "HANSEN, J.T. Netter’s Clinical Anatomy. Elsevier, 2019."
+          },
+          {
+            "pergunta": "As vértebras lombares diferem das cervicais por:",
+            "opcoes": [
+              "Terem menos curvatura",
+              "Apresentarem forames transversos",
+              "Possuírem corpos vertebrais mais robustos",
+              "Estarem ligadas diretamente ao crânio"
+            ],
+            "resposta_correta": "Possuírem corpos vertebrais mais robustos",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "As vértebras lombares são maiores e mais robustas, suportando maior peso corporal.",
+            "referencia": "DÂNGELO, J.G.; FATTINI, C.A. Anatomia Humana. Atheneu, 2016."
+          },
+          {
+            "pergunta": "A patela está localizada:",
+            "opcoes": [
+              "Na parte superior do úmero",
+              "Entre o rádio e a ulna",
+              "Na articulação do joelho",
+              "Entre as vértebras cervicais"
+            ],
+            "resposta_correta": "Na articulação do joelho",
+            "categoria": "Unidade 1",
+            "dificuldade": "facil",
+            "explicacao": "A patela é um osso sesamoide que protege a articulação do joelho e facilita a ação do quadríceps.",
+            "referencia": "POZZOBON, A. et al. Anatomia na prática. Univates, 2015."
+          },
+          {
+            "pergunta": "Qual afirmação sobre acidentes ósseos está correta?",
+            "opcoes": [
+              "Meatos são saliências para inserção muscular",
+              "Suturas são pontos móveis entre ossos longos",
+              "Forames permitem passagem de estruturas anatômicas",
+              "Tuberosidades são cavidades articulares profundas"
+            ],
+            "resposta_correta": "Forames permitem passagem de estruturas anatômicas",
+            "categoria": "Unidade 1",
+            "dificuldade": "medio",
+            "explicacao": "Os forames são aberturas nos ossos que permitem a passagem de nervos, vasos ou tendões.",
+            "referencia": "HANSEN, J.T. Netter’s Clinical Anatomy. Elsevier, 2019."
+          }
+      ]
+    }
+  }
+  

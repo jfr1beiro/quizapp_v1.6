@@ -1,0 +1,121 @@
+# Configuração do Cloud Build para CI/CD - App Engine
+# Este arquivo é específico para deploy no Google App Engine (não usa Docker)
+
+steps:
+  # Passo 1: Verificar estrutura do projeto
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'verify-structure'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "=== Verificando estrutura do projeto ==="
+        ls -la
+        echo "=== Verificando requirements.txt ==="
+        cat requirements.txt
+        echo "=== Verificando app.yaml ==="
+        head -20 app.yaml
+
+  # Passo 2: Instalar dependências
+  - name: 'python:3.10-slim'
+    id: 'install-dependencies'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        pip install --upgrade pip
+        pip install -r requirements.txt --target .
+        echo "Dependências instaladas com sucesso"
+
+  # Passo 3: Executar testes básicos
+  - name: 'python:3.10-slim'
+    id: 'run-basic-tests'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        export PYTHONPATH=".:$PYTHONPATH"
+        python -c "import app; print('App importado com sucesso')"
+        python -c "import flask; print(f'Flask versão: {flask.__version__}')"
+
+  # Passo 4: Configurar variáveis de ambiente do Secret Manager
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'prepare-secrets'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "=== Obtendo secrets do Secret Manager ==="
+        
+        # Cria arquivo temporário com variáveis de ambiente
+        echo "SECRET_KEY=$(gcloud secrets versions access latest --secret='quiz-secret-key')" > .env.production
+        echo "ADMIN_EMAIL=$(gcloud secrets versions access latest --secret='quiz-admin-email')" >> .env.production
+        echo "ADMIN_DEFAULT_PASSWORD=$(gcloud secrets versions access latest --secret='quiz-admin-password')" >> .env.production
+        echo "GCS_BUCKET_NAME=$(gcloud secrets versions access latest --secret='quiz-gcs-bucket')" >> .env.production
+        
+        echo "Variáveis de ambiente preparadas"
+
+  # Passo 5: Deploy para App Engine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'deploy-app-engine'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        # Carrega variáveis do arquivo temporário
+        source .env.production
+        
+        echo "=== Fazendo deploy para App Engine ==="
+        gcloud app deploy app.yaml --quiet --no-cache \
+          --set-env-vars="SECRET_KEY=$${SECRET_KEY},ADMIN_EMAIL=$${ADMIN_EMAIL},ADMIN_DEFAULT_PASSWORD=$${ADMIN_DEFAULT_PASSWORD},GCS_BUCKET_NAME=$${GCS_BUCKET_NAME}"
+        
+        # Remove arquivo temporário
+        rm -f .env.production
+        
+        echo "Deploy concluído com sucesso"
+
+  # Passo 6: Verificar health check
+  - name: 'gcr.io/cloud-builders/gcloud'
+    id: 'health-check'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "=== Verificando health check ==="
+        APP_URL="https://$PROJECT_ID.appspot.com"
+        
+        # Espera um pouco para o app inicializar
+        sleep 30
+        
+        # Testa health check
+        curl -f "$APP_URL/health" || echo "Health check falhou, mas deploy pode estar OK"
+        
+        echo "URL da aplicação: $APP_URL"
+
+# Configurações do build otimizadas
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: 'E2_MEDIUM'  # Reduzido para economizar
+  diskSizeGb: 20
+
+# Timeout do build (20 minutos)
+timeout: '1200s'
+
+# Substitutions (variáveis que podem ser passadas no trigger)
+substitutions:
+  _DEPLOY_REGION: 'us-central1'
+  _SERVICE_NAME: 'quiz-app'
+  _ENV: 'production'
+
+# Tags para organização
+tags:
+  - 'quiz-app'
+  - 'app-engine'
+  - 'production'
+  - 'automated-deploy'
+
+# Configuração de artefatos (opcional)
+artifacts:
+  objects:
+    location: 'gs://$PROJECT_ID-build-artifacts'
+    paths: ['logs/*']

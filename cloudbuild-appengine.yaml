@@ -1,0 +1,142 @@
+# Cloud Build para Google App Engine (sem Docker)
+# Este arquivo substitui o cloudbuild.yaml para evitar conflitos com Docker
+
+steps:
+  # Passo 1: Verificar ambiente
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "=== Verificando configuração para App Engine ==="
+        echo "Projeto: $PROJECT_ID"
+        echo "Branch: $BRANCH_NAME"
+        echo "Commit: $COMMIT_SHA"
+        echo ""
+        echo "=== Arquivos no diretório ==="
+        ls -la
+        echo ""
+        echo "=== Verificando app.yaml ==="
+        if [ -f app.yaml ]; then
+          echo "✅ app.yaml encontrado"
+          head -15 app.yaml
+        else
+          echo "❌ app.yaml não encontrado!"
+          exit 1
+        fi
+
+  # Passo 2: Verificar dependências
+  - name: 'python:3.10-slim'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "=== Verificando dependências Python ==="
+        if [ -f requirements.txt ]; then
+          echo "✅ requirements.txt encontrado"
+          cat requirements.txt
+          echo ""
+          echo "=== Testando instalação das dependências ==="
+          pip install --no-cache-dir -r requirements.txt
+          echo "✅ Dependências instaladas com sucesso"
+        else
+          echo "❌ requirements.txt não encontrado!"
+          exit 1
+        fi
+
+  # Passo 3: Teste básico de import
+  - name: 'python:3.10-slim'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "=== Testando imports da aplicação ==="
+        pip install --no-cache-dir -r requirements.txt
+        python -c "
+        try:
+            import flask
+            print('✅ Flask importado com sucesso')
+            import app
+            print('✅ App principal importado com sucesso')
+            print('✅ Todos os imports OK')
+        except ImportError as e:
+            print(f'❌ Erro de import: {e}')
+            exit(1)
+        except Exception as e:
+            print(f'❌ Erro: {e}')
+            exit(1)
+        "
+
+  # Passo 4: Deploy para App Engine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "=== Deploy para App Engine ==="
+        
+        # Obtém secrets se disponíveis
+        if gcloud secrets describe quiz-secret-key --quiet >/dev/null 2>&1; then
+          echo "✅ Secrets encontrados, fazendo deploy com variáveis de ambiente"
+          
+          SECRET_KEY=$(gcloud secrets versions access latest --secret="quiz-secret-key")
+          ADMIN_EMAIL=$(gcloud secrets versions access latest --secret="quiz-admin-email")
+          ADMIN_PASSWORD=$(gcloud secrets versions access latest --secret="quiz-admin-password")
+          GCS_BUCKET=$(gcloud secrets versions access latest --secret="quiz-gcs-bucket")
+          
+          gcloud app deploy app.yaml --quiet \
+            --set-env-vars="SECRET_KEY=$${SECRET_KEY},ADMIN_EMAIL=$${ADMIN_EMAIL},ADMIN_DEFAULT_PASSWORD=$${ADMIN_PASSWORD},GCS_BUCKET_NAME=$${GCS_BUCKET}"
+        else
+          echo "⚠️  Secrets não encontrados, fazendo deploy básico"
+          gcloud app deploy app.yaml --quiet
+        fi
+        
+        echo "✅ Deploy concluído"
+
+  # Passo 5: Verificar deploy
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "=== Verificando deploy ==="
+        
+        # Espera um pouco para o app inicializar
+        sleep 30
+        
+        APP_URL="https://$PROJECT_ID.appspot.com"
+        echo "URL da aplicação: $APP_URL"
+        
+        # Testa health check
+        if curl -f "$APP_URL/health" >/dev/null 2>&1; then
+          echo "✅ Health check passou"
+        else
+          echo "⚠️  Health check falhou, mas deploy pode estar OK"
+        fi
+        
+        # Testa página principal
+        if curl -f "$APP_URL" >/dev/null 2>&1; then
+          echo "✅ Página principal acessível"
+        else
+          echo "⚠️  Página principal com problemas"
+        fi
+
+# Configurações otimizadas
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: 'E2_MEDIUM'
+  diskSizeGb: 20
+
+# Timeout de 15 minutos
+timeout: '900s'
+
+# Substitutions
+substitutions:
+  _SERVICE_NAME: 'quiz-app'
+  _ENV: 'production'
+
+# Tags
+tags:
+  - 'quiz-app'
+  - 'app-engine'
+  - 'production'

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔐 Login Admin - Quiz Enfermagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 450px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .login-header {
+            margin-bottom: 40px;
+        }
+
+        .login-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .login-header p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .login-form {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e1e8ed;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            margin-top: 20px;
+            min-width: 250px;
+            justify-content: center;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .login-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .security-notice {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 1px solid #f39c12;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+            color: #856404;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .security-notice i {
+            font-size: 1.2rem;
+            color: #f39c12;
+        }
+
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        .message {
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .message.success {
+            background: linear-gradient(135deg, #d5f4e6, #c8e6c9);
+            color: #1e8449;
+            border: 1px solid #27ae60;
+        }
+
+        .message.error {
+            background: linear-gradient(135deg, #ffeaea, #ffcdd2);
+            color: #c0392b;
+            border: 1px solid #e74c3c;
+        }
+
+        .message.info {
+            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
+            color: #2c5aa0;
+            border: 1px solid #3498db;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #764ba2;
+            transform: translateX(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 40px 30px;
+                margin: 20px;
+            }
+            
+            .login-header h1 {
+                font-size: 2rem;
+            }
+            
+            .login-btn {
+                padding: 15px 25px;
+                font-size: 1rem;
+                min-width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <div class="login-container">
+        <div class="login-header">
+            <h1>
+                <i class="fas fa-user-shield"></i>
+                Admin Login
+            </h1>
+            <p>Acesso Administrativo</p>
+            <p><strong>E-mail autorizado:</strong> j.f.s.r95@gmail.com</p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="message {{ category }}">
+                        <i class="fas fa-{% if category == 'success' %}check-circle{% elif category == 'error' %}exclamation-triangle{% else %}info-circle{% endif %}"></i>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" class="login-form">
+            <div class="form-group">
+                <label for="email">
+                    <i class="fas fa-envelope"></i> E-mail
+                </label>
+                <input type="email" id="email" name="email" class="form-control" 
+                       placeholder="Digite seu e-mail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">
+                    <i class="fas fa-lock"></i> Senha
+                </label>
+                <input type="password" id="password" name="password" class="form-control" 
+                       placeholder="Digite sua senha" required>
+            </div>
+
+            <button type="submit" class="login-btn">
+                <i class="fas fa-sign-in-alt"></i>
+                Entrar
+            </button>
+        </form>
+
+        <div class="security-notice">
+            <i class="fas fa-shield-alt"></i>
+            <span>Acesso restrito apenas para administradores autorizados</span>
+        </div>
+
+        <div class="back-link">
+            <a href="{{ url_for('index') }}">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao Quiz
+            </a>
+        </div>
+    </div>
+</body>
+</html>

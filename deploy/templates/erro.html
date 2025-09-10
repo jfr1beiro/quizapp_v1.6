@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Erro - Quiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { background: #f8f8f8; }
+        .erro-container {
+            max-width: 500px;
+            margin: 60px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .erro-icon {
+            font-size: 3.5rem;
+            color: #f44336;
+            margin-bottom: 18px;
+        }
+        .erro-msg {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .btn-voltar {
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 28px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-voltar:hover {
+            background: #1256a3;
+        }
+    </style>
+</head>
+<body>
+    <div class="erro-container">
+        <div class="erro-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="erro-msg">
+            {{ mensagem }}
+        </div>
+        <button class="btn-voltar" onclick="window.location.href='/'">
+            <i class="fas fa-home"></i> Voltar ao Início
+        </button>
+    </div>
+</body>
+</html>

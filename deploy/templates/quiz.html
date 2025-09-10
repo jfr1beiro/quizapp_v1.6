@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>❓ Quiz - Pergunta {{ pergunta_numero }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh; 
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px; 
+        }
+
+        .quiz-header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px; 
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .quiz-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .progress-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: #666;
+        }
+
+        .timer-container {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .timer-container.warning {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            animation: pulse-warning 1s infinite;
+        }
+
+        @keyframes pulse-warning {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .timer-container.danger {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            animation: pulse-danger 0.5s infinite;
+        }
+
+        @keyframes pulse-danger {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .professor-badge {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .professor-badge i {
+            font-size: 1.1rem;
+        }
+
+        .question-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .options-container {
+            max-height: 40vh;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 8px;
+        }
+
+        .option-item {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option-item input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .option-item label {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 25px;
+            border: 2px solid #e1e8ed;
+            border-radius: 15px;
+            background: #f8f9fa;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 1.1rem;
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .option-item label span {
+            flex: 1;
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+
+        .option-item:hover label {
+            border-color: #667eea;
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .option-item input[type="radio"]:checked + label {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .option-letter {
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .option-item input[type="radio"]:checked + label .option-letter {
+            background: white;
+            color: #667eea;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .controls .btn {
+            min-width: 180px;
+            font-size: 1.1rem;
+            padding: 14px 0;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn.secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .audio-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .audio-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+
+        .audio-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .feedback-message {
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+        }
+
+        .feedback-message.success {
+            background: linear-gradient(135deg, #d5f4e6, #c8e6c9);
+            color: #1e8449;
+            border: 2px solid #27ae60;
+        }
+
+        .feedback-message.error {
+            background: linear-gradient(135deg, #ffeaea, #ffcdd2);
+            color: #c0392b;
+            border: 2px solid #e74c3c;
+        }
+
+        .explanation {
+            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
+            border: 2px solid #3498db;
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            color: #2c5aa0;
+            font-weight: 500;
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-container {
+                padding: 15px;
+            }
+            
+            .quiz-header {
+                padding: 20px;
+            }
+            
+            .question-card {
+                padding: 25px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .option-item label {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+            
+            .controls {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .timer-container {
+                font-size: 1rem;
+                padding: 12px 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .options-container {
+                max-height: 50vh;
+            }
+            .controls {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .controls .btn {
+                width: 100%;
+                min-width: unset;
+            }
+        }
+
+        .opcao-resultado {
+            padding: 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            justify-content: center;
+            text-align: center;
+        }
+        .opcao-letra {
+            font-weight: 600;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-right: 8px;
+        }
+        .opcao-texto {
+            flex: 1;
+            font-weight: 500;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <h1>
+                <i class="fas fa-question-circle"></i>
+                Pergunta {{ pergunta_numero }} de {{ total_perguntas }}
+            </h1>
+            
+            <div class="progress-info">
+                <span>Progresso: {{ pergunta_numero }}/{{ total_perguntas }}</span>
+                <div class="timer-container" id="timer">
+                    <i class="fas fa-clock"></i>
+                    <span id="timer-text">--:--</span>
+                </div>
+            </div>
+            
+            {% if config_usuario.ler_perguntas %}
+            <div class="audio-controls">
+                <button class="audio-btn" onclick="lerPerguntaEOpcoes()" id="btn-ler-tudo">
+                    <i class="fas fa-volume-up"></i>
+                    Ler Pergunta e Opções
+                </button>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="question-card">
+            {% if pergunta.get('fonte_material') == 'professor' %}
+            <div class="professor-badge">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>{{ pergunta.get('legenda', '📚 Material de aula presencial') }}</span>
+            </div>
+            {% endif %}
+            <div class="question-text" id="pergunta-texto">
+                {{ pergunta.pergunta }}
+        </div>
+        
+            <form id="quiz-form">
+                <input type="hidden" name="session_id" value="{{ session_id }}">
+                
+                <div class="options-container">
+                    {% for opcao in pergunta.opcoes %}
+                    <div class="option-item">
+                        <input type="radio" id="opcao-{{ loop.index0 }}" name="resposta" value="{{ opcao }}" required>
+                        <label for="opcao-{{ loop.index0 }}">
+                            <div class="option-letter">{{ loop.index0 | chr }}</div>
+                            <span>{{ opcao }}</span>
+                        </label>
+                    </div>
+                    {% endfor %}
+        </div>
+        
+                <div class="feedback-message" id="feedback-message"></div>
+                <div class="explanation" id="explanation"></div>
+
+                <div class="controls">
+                    <button type="button" class="btn secondary" onclick="voltarInicio()">
+                        <i class="fas fa-home"></i>
+                        Início
+            </button>
+                    <button type="button" class="btn danger" onclick="finalizarQuiz()">
+                        <i class="fas fa-flag-checkered"></i>
+                        Finalizar
+            </button>
+                    <button type="submit" class="btn primary" id="btn-responder">
+                        <i class="fas fa-paper-plane"></i>
+                        Responder
+            </button>
+        </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        let tempoRestante = {{ tempo_restante }};
+        let timerInterval;
+        let speechSynthesis = window.speechSynthesis;
+        let speaking = false;
+
+        function formatTime(seconds) {
+            if (isNaN(seconds) || seconds < 0) {
+                return "00:00";
+            }
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            const paddedMinutes = String(minutes).padStart(2, '0');
+            const paddedSeconds = String(remainingSeconds).padStart(2, '0');
+            return `${paddedMinutes}:${paddedSeconds}`;
+        }
+
+        // Inicializa timer
+        function iniciarTimer() {
+            timerInterval = setInterval(() => {
+                tempoRestante--;
+                atualizarTimer();
+                
+                if (tempoRestante <= 0) {
+                    clearInterval(timerInterval);
+                    tempoEsgotado();
+                }
+            }, 1000);
+        }
+
+        function atualizarTimer() {
+            const timerElement = document.getElementById('timer');
+            const timerText = document.getElementById('timer-text');
+            
+            timerText.textContent = formatTime(tempoRestante);
+            
+            // Muda cor baseado no tempo restante (agora em segundos)
+            if (tempoRestante <= 30) { // 30 segundos
+                timerElement.className = 'timer-container danger';
+            } else if (tempoRestante <= 120) { // 2 minutos
+                timerElement.className = 'timer-container warning';
+            } else {
+                timerElement.className = 'timer-container';
+            }
+        }
+
+        function tempoEsgotado() {
+            alert('Tempo esgotado! A pergunta será considerada como não respondida e o quiz será finalizado.');
+            
+            // Finaliza o quiz ao invés de apenas submeter uma pergunta
+            const sessionId = document.querySelector('input[name="session_id"]').value;
+            window.location.href = `/resultado?session_id=${sessionId}&tempo_esgotado=true`;
+        }
+
+        // Funcionalidades de leitura
+        function lerPerguntaEOpcoes() {
+            if (speaking) {
+                speechSynthesis.cancel();
+                speaking = false;
+                return;
+            }
+            
+            const textoPergunta = document.getElementById('pergunta-texto').textContent;
+            const opcoes = Array.from(document.querySelectorAll('.option-item label span')).map((span, index) => {
+                return `Opção ${String.fromCharCode(65 + index)}: ${span.textContent}`;
+            }).join('. ');
+
+            const textoCompleto = `${textoPergunta}. ${opcoes}`;
+
+            const utterance = new SpeechSynthesisUtterance(textoCompleto);
+            utterance.lang = 'pt-BR';
+            utterance.rate = 0.9;
+            
+            const btnLer = document.getElementById('btn-ler-tudo');
+
+            utterance.onend = () => {
+                speaking = false;
+                if(btnLer) btnLer.innerHTML = '<i class="fas fa-volume-up"></i> Ler Pergunta e Opções';
+            };
+            
+            utterance.onstart = () => {
+                speaking = true;
+                if(btnLer) btnLer.innerHTML = '<i class="fas fa-stop"></i> Parar Leitura';
+            };
+            
+            speechSynthesis.speak(utterance);
+        }
+
+        // Submissão do formulário
+        document.getElementById('quiz-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const resposta = formData.get('resposta');
+            
+            if (!resposta) {
+                alert('Por favor, selecione uma opção antes de responder.');
+                return;
+            }
+            
+            // Desabilita botão
+            const btnResponder = document.getElementById('btn-responder');
+            btnResponder.disabled = true;
+            btnResponder.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando...';
+            
+            // Para leitura se estiver ativa
+            if (speaking) {
+                speechSynthesis.cancel();
+                speaking = false;
+            }
+            
+            // Envia resposta
+            fetch('/responder', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.erro) {
+                    alert('Erro: ' + data.erro);
+                    btnResponder.disabled = false;
+                    btnResponder.innerHTML = '<i class="fas fa-paper-plane"></i> Responder';
+                    return;
+                }
+                
+                // Mostra feedback
+                const feedbackElement = document.getElementById('feedback-message');
+                const explanationElement = document.getElementById('explanation');
+                
+                if (data.correta) {
+                    feedbackElement.className = 'feedback-message success';
+                    feedbackElement.innerHTML = '<i class="fas fa-check-circle"></i> Resposta correta! +' + data.pontos + ' pontos';
+                } else {
+                    feedbackElement.className = 'feedback-message error';
+                    feedbackElement.innerHTML = '<i class="fas fa-times-circle"></i> Resposta incorreta. Resposta correta: ' + data.resposta_correta;
+                }
+                
+                feedbackElement.style.display = 'block';
+                
+                // Mostra explicação se disponível
+                if (data.explicacao) {
+                    explanationElement.innerHTML = '<strong>💡 Explicação:</strong> ' + data.explicacao;
+                    explanationElement.style.display = 'block';
+                }
+                
+                // Aguarda 3 segundos antes de continuar
+                setTimeout(() => {
+                    if (data.fim) {
+                        // Quiz terminou
+                        window.location.href = '/resultado?session_id=' + data.session_id;
+                    } else {
+                        // Próxima pergunta
+                        window.location.href = '/proxima_pergunta?session_id=' + data.session_id;
+                    }
+                }, 3000);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro ao enviar resposta. Tente novamente.');
+                btnResponder.disabled = false;
+                btnResponder.innerHTML = '<i class="fas fa-paper-plane"></i> Responder';
+            });
+        });
+
+        function voltarInicio() {
+            if (confirm('Tem certeza que deseja sair do quiz? Seu progresso será perdido e você voltará ao início.')) {
+                window.location.href = '/';
+            }
+        }
+
+        function finalizarQuiz() {
+            if (confirm('Deseja realmente finalizar o quiz e ver o relatório?')) {
+                const sessionId = '{{ session_id }}';
+                window.location.href = '/finalizar_quiz?session_id=' + sessionId;
+            }
+        }
+
+        // Inicia timer quando página carrega
+        document.addEventListener('DOMContentLoaded', function() {
+            iniciarTimer();
+            atualizarTimer();
+            // Auto-leitura se configurado
+            let dadosUsuario = {};
+            try {
+                dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario')) || {};
+            } catch(e) {}
+            if (dadosUsuario.ler_perguntas) {
+                setTimeout(() => {
+                    if (typeof lerPerguntaEOpcoes === 'function') lerPerguntaEOpcoes();
+                }, 1000);
+            }
+        });
+
+        // Limpa timer quando página é fechada
+        window.addEventListener('beforeunload', function() {
+            clearInterval(timerInterval);
+            if (speaking) {
+                speechSynthesis.cancel();
+            }
+        });
+    </script>
+</body>
+</html>

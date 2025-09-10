@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Quiz Principal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .nav {
+            background: #34495e;
+            padding: 15px 30px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .nav a:hover {
+            background: #2c3e50;
+        }
+        
+        .nav a.active {
+            background: #3498db;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+        
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            margin: 5px;
+        }
+        
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #229954;
+        }
+        
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        
+        .filters {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filters h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .filter-row {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .form-group label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .form-group input,
+        .form-group select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .questions-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .questions-table th,
+        .questions-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .questions-table th {
+            background: #34495e;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .questions-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .question-text {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        
+        .pagination button:hover {
+            background: #f8f9fa;
+        }
+        
+        .pagination button.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .close {
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #aaa;
+        }
+        
+        .close:hover {
+            color: #000;
+        }
+        
+        .form-row {
+            margin-bottom: 15px;
+        }
+        
+        .form-row label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .form-row input,
+        .form-row textarea,
+        .form-row select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .form-row textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .options-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+        
+        .option-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+        }
+        
+        .option-item input {
+            flex: 1;
+        }
+        
+        .option-item button {
+            padding: 5px 10px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .add-option-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .alert {
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Admin - Quiz Principal</h1>
+            <p>Gerencie as perguntas do quiz principal</p>
+        </div>
+        
+        <div class="nav">
+            <a href="/admin">📚 Quiz Recuperação</a>
+            <a href="/admin/quiz-principal" class="active">🎯 Quiz Principal</a>
+            <a href="/">🏠 Voltar ao Quiz</a>
+        </div>
+        
+        <div class="content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">{{ stats.total_perguntas }}</div>
+                    <div class="stat-label">Total de Perguntas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">{{ stats.periodos|length }}</div>
+                    <div class="stat-label">Períodos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">{{ stats.disciplinas|length }}</div>
+                    <div class="stat-label">Disciplinas</div>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 30px;">
+                <button class="btn btn-primary" onclick="loadQuestions()">🔄 Recarregar</button>
+                <button class="btn btn-success" onclick="exportQuestions()">📤 Exportar JSON</button>
+            </div>
+            
+            <div id="alertContainer"></div>
+            
+            <table class="questions-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Pergunta</th>
+                        <th>Período</th>
+                        <th>Disciplina</th>
+                        <th>Categoria</th>
+                        <th>Dificuldade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="questionsTableBody">
+                    <tr>
+                        <td colspan="7" style="text-align: center; padding: 40px;">
+                            Carregando perguntas...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Modal para Adicionar/Editar Pergunta -->
+    <div id="questionModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Adicionar Pergunta</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <form id="questionForm">
+                <input type="hidden" id="questionIndex" value="">
+                
+                <div class="form-row">
+                    <label for="pergunta">Pergunta:</label>
+                    <textarea id="pergunta" required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <label>Opções:</label>
+                    <div class="options-container" id="optionsContainer">
+                        <div class="option-item">
+                            <input type="text" placeholder="Opção A" required>
+                            <button type="button" onclick="removeOption(this)">❌</button>
+                        </div>
+                        <div class="option-item">
+                            <input type="text" placeholder="Opção B" required>
+                            <button type="button" onclick="removeOption(this)">❌</button>
+                        </div>
+                        <div class="option-item">
+                            <input type="text" placeholder="Opção C" required>
+                            <button type="button" onclick="removeOption(this)">❌</button>
+                        </div>
+                        <div class="option-item">
+                            <input type="text" placeholder="Opção D" required>
+                            <button type="button" onclick="removeOption(this)">❌</button>
+                        </div>
+                    </div>
+                    <button type="button" class="add-option-btn" onclick="addOption()">➕ Adicionar Opção</button>
+                </div>
+                
+                <div class="form-row">
+                    <label for="respostaCorreta">Resposta Correta:</label>
+                    <select id="respostaCorreta" required>
+                        <option value="">Selecione a resposta correta</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <label for="periodo">Período:</label>
+                    <input type="number" id="periodo" min="1" max="10" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="disciplina">Disciplina:</label>
+                    <input type="text" id="disciplina" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="categoria">Categoria:</label>
+                    <input type="text" id="categoria">
+                </div>
+                
+                <div class="form-row">
+                    <label for="dificuldade">Dificuldade:</label>
+                    <select id="dificuldade">
+                        <option value="facil">Fácil</option>
+                        <option value="medio" selected>Médio</option>
+                        <option value="dificil">Difícil</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <label for="explicacao">Explicação:</label>
+                    <textarea id="explicacao" placeholder="Explicação da resposta correta"></textarea>
+                </div>
+                
+                <div class="actions">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn" onclick="closeModal()">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        // Carrega perguntas na inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            loadQuestions();
+        });
+        
+        function loadQuestions() {
+            fetch('/admin/listar-perguntas-principais')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.erro) {
+                        showAlert(data.erro, 'error');
+                        return;
+                    }
+                    
+                    displayQuestions(data.perguntas);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    showAlert('Erro ao carregar perguntas', 'error');
+                });
+        }
+        
+        function displayQuestions(perguntas) {
+            const tbody = document.getElementById('questionsTableBody');
+            
+            if (perguntas.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px;">Nenhuma pergunta encontrada</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = perguntas.map((pergunta, index) => `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td style="max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="${pergunta.pergunta}">${pergunta.pergunta}</td>
+                    <td>${pergunta.periodo}</td>
+                    <td>${pergunta.disciplina}</td>
+                    <td>${pergunta.categoria || '-'}</td>
+                    <td>${pergunta.dificuldade}</td>
+                    <td>
+                        <button class="btn btn-primary" onclick="editQuestion(${index})">✏️</button>
+                        <button class="btn btn-danger" onclick="deleteQuestion(${index})">🗑️</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+        
+        function deleteQuestion(index) {
+            if (!confirm('Tem certeza que deseja excluir esta pergunta?')) {
+                return;
+            }
+            
+            fetch('/admin/excluir-pergunta-principal', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ indice: index })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.erro) {
+                    showAlert(data.erro, 'error');
+                } else {
+                    showAlert(data.mensagem, 'success');
+                    loadQuestions();
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                showAlert('Erro ao excluir pergunta', 'error');
+            });
+        }
+        
+        function editQuestion(index) {
+            showAlert('Funcionalidade de edição será implementada em breve', 'success');
+        }
+        
+        function showAlert(message, type) {
+            const container = document.getElementById('alertContainer');
+            const alert = document.createElement('div');
+            alert.className = `alert alert-${type}`;
+            alert.textContent = message;
+            
+            container.innerHTML = '';
+            container.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 5000);
+        }
+        
+        function exportQuestions() {
+            // Implementação básica de exportação
+            showAlert('Funcionalidade de exportação será implementada em breve', 'success');
+        }
+        
+        function closeModal() {
+            document.getElementById('questionModal').style.display = 'none';
+        }
+        
+        function addOption(value = '') {
+            const container = document.getElementById('optionsContainer');
+            const optionDiv = document.createElement('div');
+            optionDiv.className = 'option-item';
+            optionDiv.innerHTML = `
+                <input type="text" placeholder="Opção" value="${value}" required>
+                <button type="button" onclick="removeOption(this)">❌</button>
+            `;
+            container.appendChild(optionDiv);
+            updateRespostaCorretaOptions();
+        }
+        
+        function removeOption(button) {
+            const container = document.getElementById('optionsContainer');
+            if (container.children.length > 2) {
+                button.parentElement.remove();
+                updateRespostaCorretaOptions();
+            } else {
+                showAlert('Deve haver pelo menos 2 opções', 'error');
+            }
+        }
+        
+        function updateRespostaCorretaOptions() {
+            const select = document.getElementById('respostaCorreta');
+            const options = document.querySelectorAll('#optionsContainer input');
+            
+            select.innerHTML = '<option value="">Selecione a resposta correta</option>';
+            
+            options.forEach((input, index) => {
+                const option = document.createElement('option');
+                option.value = input.value;
+                option.textContent = `${String.fromCharCode(65 + index)}) ${input.value}`;
+                select.appendChild(option);
+            });
+        }
+        
+        document.getElementById('questionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const index = document.getElementById('questionIndex').value;
+            const isEditing = index !== '';
+            
+            const options = Array.from(document.querySelectorAll('#optionsContainer input')).map(input => input.value);
+            
+            const data = {
+                pergunta: document.getElementById('pergunta').value,
+                opcoes: options,
+                resposta_correta: document.getElementById('respostaCorreta').value,
+                periodo: document.getElementById('periodo').value,
+                disciplina: document.getElementById('disciplina').value,
+                categoria: document.getElementById('categoria').value,
+                dificuldade: document.getElementById('dificuldade').value,
+                explicacao: document.getElementById('explicacao').value
+            };
+            
+            if (isEditing) {
+                data.indice = parseInt(index);
+            }
+            
+            const url = isEditing ? '/admin/editar-pergunta-principal' : '/admin/adicionar-pergunta-principal';
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.erro) {
+                    showAlert(data.erro, 'error');
+                } else {
+                    showAlert(data.mensagem, 'success');
+                    closeModal();
+                    loadQuestions();
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                showAlert('Erro ao salvar pergunta', 'error');
+            });
+        });
+        
+        // Fecha modal ao clicar fora
+        window.onclick = function(event) {
+            const modal = document.getElementById('questionModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html> 

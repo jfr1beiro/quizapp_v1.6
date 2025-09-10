@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Ranking{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header">
+                <h3>🏆 Ranking</h3>
+            </div>
+            <div class="card-body">
+                <p class="text-muted">Funcionalidade em desenvolvimento...</p>
+                <p>Em breve você poderá ver:</p>
+                <ul>
+                    <li>Melhores pontuações</li>
+                    <li>Estatísticas por categoria</li>
+                    <li>Histórico de jogos</li>
+                    <li>Comparação com outros jogadores</li>
+                </ul>
+                
+                <div class="text-center mt-4">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">Voltar ao Início</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Resultado do Quiz - NELICE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 400;
+        }
+        
+        .resultado-geral {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .pontuacao-principal {
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .pontuacao-principal::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        
+        .pontuacao-principal.excelente {
+            color: #27ae60;
+        }
+        
+        .pontuacao-principal.excelente::after {
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+        }
+        
+        .pontuacao-principal.bom {
+            color: #f39c12;
+        }
+        
+        .pontuacao-principal.bom::after {
+            background: linear-gradient(90deg, #f39c12, #f1c40f);
+        }
+        
+        .pontuacao-principal.regular {
+            color: #e74c3c;
+        }
+        
+        .pontuacao-principal.regular::after {
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+        }
+        
+        .estatisticas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .estatistica {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .estatistica:hover {
+            transform: translateY(-5px);
+        }
+        
+        .estatistica-valor {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        
+        .estatistica-label {
+            color: #666;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .performance {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .performance-emoji {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .performance-texto {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .performance-descricao {
+            color: #666;
+            line-height: 1.6;
+            font-size: 1.1rem;
+        }
+        
+        .detalhes-respostas {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .detalhes-titulo {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .pergunta-resultado {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .pergunta-resultado:hover {
+            transform: translateY(-2px);
+        }
+        
+        .pergunta-resultado.acertou {
+            border-left: 5px solid #27ae60;
+            background: linear-gradient(135deg, #d5f4e6 0%, #c8e6c9 100%);
+        }
+        
+        .pergunta-resultado.errou {
+            border-left: 5px solid #e74c3c;
+            background: linear-gradient(135deg, #ffeaea 0%, #ffcdd2 100%);
+        }
+        
+        .pergunta-resultado.nao-respondida {
+            border-left: 5px solid #95a5a6;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .pergunta-numero {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .pergunta-texto {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+        
+        .opcoes-resultado {
+            display: grid;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .opcao-resultado {
+            padding: 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .opcao-resultado.correta {
+            background: linear-gradient(135deg, #d5f4e6, #c8e6c9);
+            border: 2px solid #27ae60;
+            color: #1e8449;
+        }
+        
+        .opcao-resultado.incorreta {
+            background: linear-gradient(135deg, #ffeaea, #ffcdd2);
+            border: 2px solid #e74c3c;
+            color: #c0392b;
+        }
+        
+        .opcao-resultado.neutra {
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #e9ecef;
+            color: #6c757d;
+        }
+        
+        .opcao-letra {
+            font-weight: 600;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .opcao-resultado.correta .opcao-letra {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .opcao-resultado.incorreta .opcao-letra {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .opcao-resultado.neutra .opcao-letra {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .opcao-texto {
+            flex: 1;
+            font-weight: 500;
+        }
+        
+        .explicacao-resultado {
+            background: linear-gradient(135deg, #e8f4fd, #d1ecf1);
+            padding: 20px;
+            border-radius: 12px;
+            font-style: italic;
+            color: #2c5aa0;
+            margin-top: 15px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .botoes-finais {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            min-width: 200px;
+            justify-content: center;
+        }
+        
+        .btn-novo-quiz {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-novo-quiz:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-compartilhar {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+        
+        .btn-compartilhar:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.4);
+        }
+
+        .status-icon {
+            font-size: 1.2rem;
+        }
+
+        .status-icon.acertou {
+            color: #27ae60;
+        }
+
+        .status-icon.errou {
+            color: #e74c3c;
+        }
+
+        .status-icon.nao-respondida {
+            color: #95a5a6;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .pontuacao-principal {
+                font-size: 3.5rem;
+            }
+            
+            .estatisticas {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .estatistica-valor {
+                font-size: 2rem;
+            }
+            
+            .performance-emoji {
+                font-size: 3.5rem;
+            }
+            
+            .botoes-finais {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fas fa-trophy"></i> Resultado do Quiz</h1>
+            <p>Veja como você se saiu nesta jornada de conhecimento!</p>
+        </div>
+        
+        <div class="resultado-geral">
+            <div class="pontuacao-principal {% if percentual >= 80 %}excelente{% elif percentual >= 60 %}bom{% else %}regular{% endif %}">
+                {{ percentual }}%
+            </div>
+            
+            <div class="estatisticas">
+                <div class="estatistica">
+                    <div class="estatistica-valor">{{ acertos }}</div>
+                    <div class="estatistica-label">
+                        <i class="fas fa-check-circle"></i> Acertos
+                    </div>
+                </div>
+                <div class="estatistica">
+                    <div class="estatistica-valor">{{ total - acertos }}</div>
+                    <div class="estatistica-label">
+                        <i class="fas fa-times-circle"></i> Erros
+                    </div>
+                </div>
+                <div class="estatistica">
+                    <div class="estatistica-valor">{{ total }}</div>
+                    <div class="estatistica-label">
+                        <i class="fas fa-question-circle"></i> Total
+                    </div>
+                </div>
+                <div class="estatistica">
+                    <div class="estatistica-valor">{{ tempo_gasto }}</div>
+                    <div class="estatistica-label">
+                        <i class="fas fa-clock"></i> Tempo
+                    </div>
+                </div>
+            </div>
+            
+            <div class="performance">
+                {% if percentual >= 80 %}
+                    <div class="performance-emoji">🏆</div>
+                    <div class="performance-texto">Excelente Performance!</div>
+                    <div class="performance-descricao">
+                        Você demonstrou um conhecimento excepcional! Continue assim e mantenha esse alto nível de excelência!
+                    </div>
+                {% elif percentual >= 60 %}
+                    <div class="performance-emoji">👍</div>
+                    <div class="performance-texto">Bom Trabalho!</div>
+                    <div class="performance-descricao">
+                        Você está no caminho certo! Continue estudando e praticando para alcançar resultados ainda melhores!
+                    </div>
+                {% else %}
+                    <div class="performance-emoji">📚</div>
+                    <div class="performance-texto">Continue Estudando!</div>
+                    <div class="performance-descricao">
+                        Não desanime! Revise o conteúdo, pratique mais e você verá uma melhora significativa nos próximos resultados!
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="detalhes-respostas">
+            <h2 class="detalhes-titulo">
+                <i class="fas fa-list-alt"></i> Detalhes das Respostas
+            </h2>
+            {% for resposta in respostas %}
+                <div class="pergunta-resultado {% if resposta.acertou %}acertou{% elif resposta.get('nao_respondida') %}nao-respondida{% else %}errou{% endif %}">
+                    <div class="pergunta-numero">
+                        <i class="fas fa-question-circle"></i>
+                        Pergunta {{ resposta.numero }}
+                        {% if resposta.acertou %}
+                            <i class="fas fa-check status-icon acertou"></i>
+                        {% elif resposta.get('nao_respondida') %}
+                            <i class="fas fa-minus status-icon nao-respondida"></i>
+                        {% else %}
+                            <i class="fas fa-times status-icon errou"></i>
+                        {% endif %}
+                    </div>
+                    <div class="pergunta-texto">{{ resposta.pergunta }}</div>
+                    <div class="opcoes-resultado">
+                        {% for opcao in resposta.opcoes %}
+                            {% set letra = loop.index0|chr(65) %}
+                            {% set classe = 'neutra' %}
+                            {% if opcao == resposta.resposta_correta %}
+                                {% set classe = 'correta' %}
+                            {% endif %}
+                            {% if letra == resposta.resposta_usuario and opcao != resposta.resposta_correta %}
+                                {% set classe = 'incorreta' %}
+                            {% endif %}
+                            <div class="opcao-resultado {{ classe }}">
+                                <div class="opcao-letra">{{ letra }}</div>
+                                <div class="opcao-texto">{{ opcao }}</div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Gabarito explícito -->
+                    <div class="gabarito-resultado" style="margin-top:10px; color:#1976d2; font-weight:600;">
+                        <i class="fas fa-check"></i>
+                        Gabarito:
+                        {% set letra_correta = '' %}
+                        {% for opcao in resposta.opcoes %}
+                            {% set letra = loop.index0|chr(65) %}
+                            {% if opcao == resposta.resposta_correta %}
+                                {% set letra_correta = letra %}
+                            {% endif %}
+                        {% endfor %}
+                        {{ letra_correta }} - {{ resposta.resposta_correta }}
+                    </div>
+                    {% if resposta.explicacao %}
+                        <div class="explicacao-resultado">
+                            <i class="fas fa-lightbulb"></i>
+                            <strong>Explicação:</strong> {{ resposta.explicacao }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="botoes-finais">
+            <a href="/" class="btn btn-novo-quiz">
+                <i class="fas fa-play"></i> Novo Quiz
+            </a>
+            <a href="#" class="btn btn-compartilhar" onclick="compartilharResultado()">
+                <i class="fas fa-share-alt"></i> Compartilhar
+            </a>
+        </div>
+    </div>
+    
+    <script>
+        function compartilharResultado() {
+            const percentual = "{{ percentual }}";
+            const acertos = "{{ acertos }}";
+            const total = "{{ total }}";
+            
+            const texto = `🎯 Fiz o Quiz e acertei ${acertos} de ${total} questões (${percentual}%)! Tente você também!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Meu resultado no Quiz',
+                    text: texto,
+                    url: window.location.origin
+                })
+                .catch(error => {
+                    console.error('Erro ao compartilhar:', error);
+                    alert('Não foi possível compartilhar automaticamente. Copie o texto: ' + texto);
+                });
+            } else {
+                // Fallback para navegadores que não suportam a API Web Share
+                prompt('Copie o texto abaixo para compartilhar seu resultado:', texto);
+            }
+        }
+        
+        // Adiciona a função para o filtro chr no Jinja2
+        // Isso é apenas para referência, o filtro deve ser implementado no backend
+        function chr(index, base=65) {
+            return String.fromCharCode(base + index);
+        }
+    </script>
+</body>
+</html>

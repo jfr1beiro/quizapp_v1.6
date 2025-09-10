@@ -1,0 +1,29 @@
+# Configuração simplificada do Cloud Build para App Engine
+# Use este arquivo se o cloudbuild.yaml complexo estiver causando problemas
+
+steps:
+  # Passo 1: Verificar estrutura
+  - name: 'gcr.io/cloud-builders/gcloud'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "=== Verificando arquivos ==="
+        ls -la
+        echo "=== Verificando app.yaml ==="
+        if [ -f app.yaml ]; then
+          echo "✅ app.yaml encontrado"
+          head -10 app.yaml
+        else
+          echo "❌ app.yaml não encontrado"
+          exit 1
+        fi
+
+  # Passo 2: Deploy direto para App Engine
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['app', 'deploy', 'app.yaml', '--quiet']
+
+# Configurações básicas
+timeout: '600s'
+options:
+  logging: CLOUD_LOGGING_ONLY

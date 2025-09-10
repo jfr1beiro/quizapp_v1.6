@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado - Quiz Recuperação</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            min-height: 100vh; 
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .resultado-header { 
+            background: white; 
+            border-radius: 10px; 
+            padding: 30px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            text-align: center;
+        }
+        .resultado-card { 
+            background: white; 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+        .score { 
+            font-size: 48px; 
+            font-weight: bold; 
+            margin: 20px 0; 
+        }
+        .score.excelente { color: #4caf50; }
+        .score.bom { color: #2196f3; }
+        .score.regular { color: #ff9800; }
+        .score.ruim { color: #f44336; }
+        .stats { 
+            display: flex; 
+            justify-content: space-around; 
+            margin: 20px 0; 
+        }
+        .stat { text-align: center; }
+        .stat-value { 
+            font-size: 24px; 
+            font-weight: bold; 
+            color: #333; 
+        }
+        .stat-label { 
+            color: #666; 
+            font-size: 14px; 
+        }
+        .pergunta-item { 
+            border-bottom: 1px solid #eee; 
+            padding: 15px 0; 
+        }
+        .pergunta-item:last-child { border-bottom: none; }
+        .pergunta-numero { 
+            font-weight: bold; 
+            color: #666; 
+            margin-bottom: 10px; 
+        }
+        .pergunta-texto { 
+            font-weight: bold; 
+            margin-bottom: 10px; 
+        }
+        .resposta { margin: 5px 0; }
+        .resposta.correta { color: #4caf50; }
+        .resposta.incorreta { color: #f44336; }
+        .resposta.nao-respondida { color: #ff9800; }
+        .explicacao { 
+            background: #f8f9fa; 
+            padding: 10px; 
+            border-radius: 5px; 
+            margin-top: 10px; 
+            font-style: italic; 
+        }
+        .referencia { 
+            font-size: 12px; 
+            color: #666; 
+            margin-top: 5px; 
+        }
+        .btn { 
+            background: #2196f3; 
+            color: white; 
+            padding: 12px 30px; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            margin: 10px 5px; 
+            text-decoration: none; 
+            display: inline-block; 
+        }
+        .btn:hover { background: #1976d2; }
+        .btn.success { background: #4caf50; }
+        .btn.success:hover { background: #45a049; }
+        .modo-recuperacao { 
+            background: #fff3cd; 
+            border: 1px solid #ffeaa7; 
+            color: #856404; 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin-bottom: 20px; 
+        }
+        .topico-info { 
+            background: #e3f2fd; 
+            border: 1px solid #bbdefb; 
+            color: #1565c0; 
+            padding: 15px; 
+            border-radius: 5px; 
+            margin-bottom: 20px; 
+        }
+        .opcoes-resultado {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .opcao-resultado {
+            text-align: center;
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .opcao-letra {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .opcao-texto {
+            font-size: 12px;
+            color: #666;
+        }
+        .opcao-resultado.correta {
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+        .opcao-resultado.incorreta {
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+        .opcao-resultado.neutra {
+            background-color: #f9f9f9;
+            border-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho do Resultado -->
+        <div class="resultado-header">
+            <div class="modo-recuperacao">
+                🔄 <strong>Resultado - Modo Recuperação</strong>
+            </div>
+            
+            <div class="topico-info">
+                <strong>📖 Disciplina:</strong> {{ disciplina_recuperacao }}<br>
+                <strong>🎯 Tópico:</strong> {{ topico_recuperacao }}
+            </div>
+
+            <div class="score {% if percentual >= 80 %}excelente{% elif percentual >= 60 %}bom{% elif percentual >= 40 %}regular{% else %}ruim{% endif %}">
+                {{ percentual }}%
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value">{{ acertos }}</div>
+                    <div class="stat-label">Acertos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">{{ total - acertos }}</div>
+                    <div class="stat-label">Erros</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">{{ total }}</div>
+                    <div class="stat-label">Total</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">{{ tempo_gasto }}</div>
+                    <div class="stat-label">Tempo</div>
+                </div>
+            </div>
+
+            <div style="margin-top: 30px;">
+                {% if percentual >= 70 %}
+                    <h3 style="color: #4caf50;">🎉 Excelente desempenho!</h3>
+                    <p>Você demonstrou bom domínio do conteúdo deste tópico.</p>
+                {% elif percentual >= 50 %}
+                    <h3 style="color: #2196f3;">👍 Bom trabalho!</h3>
+                    <p>Você tem uma base sólida, mas pode revisar alguns pontos.</p>
+                {% else %}
+                    <h3 style="color: #ff9800;">📚 Continue estudando!</h3>
+                    <p>Recomendamos revisar o material deste tópico antes de prosseguir.</p>
+                {% endif %}
+            </div>
+
+            <div style="margin-top: 20px;">
+                <a href="/" class="btn">🏠 Voltar ao Início</a>
+                <a href="/quiz?modo_recuperacao=true&disciplina={{ disciplina_recuperacao|urlencode }}&topico={{ topico_recuperacao|urlencode }}" class="btn success">🔄 Refazer Tópico</a>
+            </div>
+        </div>
+
+        <!-- Detalhes das Respostas -->
+        <div class="resultado-card">
+            <h3>📋 Detalhamento das Respostas</h3>
+            {% for resposta in respostas %}
+            <div class="pergunta-item">
+                <div class="pergunta-numero">
+                    Pergunta {{ resposta.numero }} 
+                    {% if resposta.acertou %}
+                        <span style="color: #4caf50;">✅</span>
+                    {% else %}
+                        <span style="color: #f44336;">❌</span>
+                    {% endif %}
+                </div>
+                <div class="pergunta-texto">{{ resposta.pergunta }}</div>
+                <div class="opcoes-resultado">
+                    {% for opcao in resposta.opcoes %}
+                        {% set letra = loop.index0|chr(65) %}
+                        {% set classe = 'neutra' %}
+                        {% if letra == resposta.resposta_usuario and resposta.acertou %}
+                            {% set classe = 'correta' %}
+                        {% elif letra == resposta.resposta_usuario and not resposta.acertou %}
+                            {% set classe = 'incorreta' %}
+                        {% elif letra == resposta.resposta_correta and not resposta.acertou %}
+                            {% set classe = 'correta' %}
+                        {% endif %}
+                        <div class="opcao-resultado {{ classe }}">
+                            <div class="opcao-letra">{{ letra }}</div>
+                            <div class="opcao-texto">{{ opcao }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                {% if resposta.explicacao %}
+                <div class="explicacao">
+                    <strong>Explicação:</strong> {{ resposta.explicacao }}
+                </div>
+                {% endif %}
+                {% if resposta.referencia %}
+                <div class="referencia">
+                    <strong>Referência:</strong> {{ resposta.referencia }}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Ações Finais -->
+        <div class="resultado-card" style="text-align: center;">
+            <h3>🎯 Próximos Passos</h3>
+            <p>Continue seu aprendizado explorando outros tópicos ou refazendo este para fixar o conteúdo.</p>
+            
+            <div style="margin-top: 20px;">
+                <a href="/" class="btn">🏠 Página Inicial</a>
+                <a href="/quiz?modo_recuperacao=true&disciplina={{ disciplina_recuperacao|urlencode }}&topico={{ topico_recuperacao|urlencode }}" class="btn success">🔄 Refazer Este Tópico</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

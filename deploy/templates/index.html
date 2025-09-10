@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏥 Quiz Enfermagem - Sistema Interativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e1e8ed;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 8px 20px rgba(149, 165, 166, 0.4);
+        }
+
+        .admin-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .admin-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            color: white;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading i {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .error-message {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .success-message {
+            background: #51cf66;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+        }
+
+        .debug-info {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .debug-info h3 {
+            margin-bottom: 15px;
+            color: #f39c12;
+        }
+
+        .debug-info pre {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.8rem;
+        }
+
+        .user-welcome {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .user-welcome h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .user-welcome p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .user-settings {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .settings-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .settings-toggle:last-child {
+            margin-bottom: 0;
+        }
+
+        .toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active {
+            background: #28a745;
+        }
+
+        .toggle-switch::after {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-switch.active::after {
+            transform: translateX(30px);
+        }
+
+        .settings-label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+        }
+
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quiz-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .quiz-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .quiz-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .quiz-card p {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .quiz-form {
+            text-align: left;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .stats-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-welcome h2 {
+                font-size: 1.5rem;
+            }
+            
+            .quiz-card {
+                padding: 25px;
+            }
+            
+            .stats-preview {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .form-divider {
+            border: none;
+            border-top: 1px solid #e1e8ed;
+            margin: 25px 0;
+        }
+
+        .start-btn-mixed {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .start-btn-mixed:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 188, 156, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header com boas-vindas personalizadas -->
+        <div class="user-welcome" id="userWelcome" style="display:none;">
+            <h2>
+                <i class="fas fa-user-circle"></i>
+                Olá, <span id="userNome"></span>!
+            </h2>
+            <p id="userBemVindo"></p>
+            <div class="user-settings">
+                <div class="settings-toggle">
+                    <div class="settings-label">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Leitura automática de perguntas</span>
+                    </div>
+                    <div class="toggle-switch" id="audio-toggle"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opções de Quiz -->
+        <div class="quiz-options">
+            <!-- Quiz Principal -->
+            <div class="quiz-card">
+                <h3>
+                    <i class="fas fa-graduation-cap"></i>
+                    Quiz Principal
+                </h3>
+                <p>Teste seus conhecimentos com questões organizadas por período e disciplina</p>
+                
+                <form id="quiz-config-form" action="/quiz" method="get" class="quiz-config-form">
+                    <input type="hidden" name="modo" value="normal">
+                    
+                    <div class="form-group">
+                        <label for="periodo">
+                            <i class="fas fa-calendar"></i> Período
+                        </label>
+                        <select name="periodo" id="periodo" class="form-control" required>
+                            <option value="">Selecione o período</option>
+                            {% for periodo in periodos_disciplinas %}
+                            <option value="{{ periodo }}">{{ periodo }}º Período</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                    <div class="form-group">
+                        <label for="disciplina">
+                            <i class="fas fa-book"></i> Disciplina
+                        </label>
+                        <select name="disciplina" id="disciplina" class="form-control" required>
+                            <option value="">Selecione a disciplina</option>
+                    </select>
+                </div>
+                
+                    <div class="form-group">
+                        <label for="quantidade_questoes">
+                            <i class="fas fa-list-ol"></i> Quantidade de questões:
+                        </label>
+                        <input type="number" id="quantidade_questoes" name="quantidade_questoes" class="form-control" min="1" max="50" value="15" required>
+                        <small>Você pode escolher entre 1 e 50 questões.</small>
+        </div>
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-play"></i>
+                        Iniciar Quiz Principal
+                    </button>
+                </form>
+                
+                <div class="stats-preview">
+                    <div class="stat-item">
+                        <div class="stat-value">{{ periodos_disciplinas|length }}</div>
+                        <div class="stat-label">Períodos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">∞</div>
+                        <div class="stat-label">Questões</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz de Recuperação -->
+            <div class="quiz-card">
+                <h3>
+                    <i class="fas fa-redo"></i>
+                    Quiz de Recuperação
+                </h3>
+                <p>Foque em tópicos específicos ou faça uma revisão geral com questões mistas.</p>
+                <form class="quiz-form" action="/quiz" method="GET">
+                    <input type="hidden" name="modo" value="recuperacao">
+                    <div class="form-group">
+                        <label for="disciplina_recup"><i class="fas fa-book"></i> Selecione a Disciplina</label>
+                        <select name="disciplina" id="disciplina_recup" class="form-control" required>
+                            <option value="">Selecione a disciplina</option>
+                            {% for disciplina in perguntas_recuperacao_db.keys() %}
+                            <option value="{{ disciplina }}">{{ disciplina }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                    <div class="form-group">
+                        <label for="topico"><i class="fas fa-tags"></i> Revisão por Tópico Específico</label>
+                        <select name="topico" id="topico_recup" class="form-control" required>
+                            <option value="">Selecione um tópico para começar</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="start-btn" id="start-specific-btn">
+                        <i class="fas fa-bullseye"></i>
+                        Iniciar por Tópico
+                    </button>
+                </form>
+                <hr class="form-divider">
+                <form class="quiz-form" action="/quiz" method="GET">
+                    <input type="hidden" name="modo" value="recuperacao">
+                    <input type="hidden" name="topico" value="revisao_geral">
+                    <div class="form-group">
+                        <label for="disciplina_geral"><i class="fas fa-book"></i> Selecione a Disciplina</label>
+                        <select name="disciplina" id="disciplina_geral" class="form-control" required>
+                            <option value="">Selecione a disciplina</option>
+                            {% for disciplina in perguntas_recuperacao_db.keys() %}
+                            <option value="{{ disciplina }}">{{ disciplina }}</option>
+                            {% endfor %}
+                    </select>
+                    </div>
+                    <button type="submit" class="start-btn-mixed">
+                        <i class="fas fa-random"></i>
+                        Revisão Geral (15 Questões Mistas)
+                    </button>
+                </form>
+                <div class="stats-preview">
+                    <div class="stat-item">
+                        <div class="stat-value">{{ topicos_recuperacao|length }}</div>
+                        <div class="stat-label">Tópicos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">Disciplinas</div>
+                        <div class="stat-label">Disponíveis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 Sistema de Quiz Enfermagem. Desenvolvido com ❤️ para estudantes.</p>
+        </div>
+    </div>
+
+    <script>
+        // Carrega dados do usuário do localStorage
+        const dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario'));
+        if (!dadosUsuario || !dadosUsuario.nome || !dadosUsuario.genero) {
+            window.location.href = '/configuracao-inicial';
+        } else {
+            document.getElementById('userWelcome').style.display = '';
+            document.getElementById('userNome').textContent = dadosUsuario.nome;
+            document.getElementById('userBemVindo').textContent =
+                `Bem-vind${dadosUsuario.genero === 'feminino' ? 'a' : 'o'} ao seu sistema de estudos personalizado`;
+            // Ativa/desativa leitura automática
+            if (dadosUsuario.ler_perguntas) {
+                document.getElementById('audio-toggle').classList.add('active');
+            }
+        }
+
+        // Carregamento dinâmico de disciplinas
+        const periodosDisciplinas = {{ periodos_disciplinas | tojson }};
+        const disciplinasPorPeriodo = {{ disciplinas_por_periodo | tojson }};
+
+        document.getElementById('periodo').addEventListener('change', function() {
+            const periodo = this.value;
+            const disciplinaSelect = document.getElementById('disciplina');
+            
+            // Limpa opções atuais
+            disciplinaSelect.innerHTML = '<option value="">Selecione a disciplina</option>';
+            
+            if (periodo && disciplinasPorPeriodo[periodo]) {
+                disciplinasPorPeriodo[periodo].forEach(disciplina => {
+                    const option = document.createElement('option');
+                    option.value = disciplina;
+                    option.textContent = disciplina;
+                    disciplinaSelect.appendChild(option);
+                });
+            }
+        });
+
+        // Toggle de áudio
+        function toggleAudio() {
+            const toggle = document.getElementById('audio-toggle');
+            const isActive = toggle.classList.contains('active');
+            
+            // Atualiza visual
+            toggle.classList.toggle('active');
+            
+            // Envia para o servidor
+            const formData = new FormData();
+            formData.append('ler_perguntas', !isActive);
+            
+            fetch('/atualizar-configuracao', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.sucesso) {
+                    // Feedback visual
+                    const icon = toggle.previousElementSibling.querySelector('i');
+                    if (!isActive) {
+                        icon.className = 'fas fa-volume-up';
+                        showNotification('Leitura automática ativada!', 'success');
+                    } else {
+                        icon.className = 'fas fa-volume-mute';
+                        showNotification('Leitura automática desativada!', 'info');
+                    }
+                } else {
+                    // Reverte se houve erro
+                    toggle.classList.toggle('active');
+                    showNotification('Erro ao atualizar configuração!', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                toggle.classList.toggle('active');
+                showNotification('Erro ao atualizar configuração!', 'error');
+            });
+        }
+
+        // Sistema de notificações
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-triangle' : 'info-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            // Estilos da notificação
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#d5f4e6' : type === 'error' ? '#ffeaea' : '#e8f4fd'};
+                color: ${type === 'success' ? '#1e8449' : type === 'error' ? '#c0392b' : '#2c5aa0'};
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-weight: 500;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove após 3 segundos
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.parentNode.removeChild(notification);
+                    }
+                }, 300);
+            }, 3000);
+        }
+
+        // Animações CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Animação de entrada
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.quiz-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+
+        document.getElementById('start-specific-btn').addEventListener('click', function(e) {
+            const topicoSelect = document.getElementById('topico_recup');
+            if (!topicoSelect.value) {
+                e.preventDefault();
+                showNotification('Por favor, selecione um tópico específico para iniciar a revisão.', 'error');
+            }
+        });
+
+        // Preencher tópicos conforme disciplina selecionada
+        const topicosPorDisciplina = {{ perguntas_recuperacao_db | tojson }};
+        document.getElementById('disciplina_recup').addEventListener('change', function() {
+            const disciplina = this.value;
+            const topicoSelect = document.getElementById('topico_recup');
+            topicoSelect.innerHTML = '<option value="">Selecione um tópico para começar</option>';
+            if (disciplina && topicosPorDisciplina[disciplina]) {
+                Object.keys(topicosPorDisciplina[disciplina]).forEach(topico => {
+                        const option = document.createElement('option');
+                        option.value = topico;
+                    option.textContent = topico;
+                        topicoSelect.appendChild(option);
+                });
+        }
+        });
+    </script>
+</body>
+</html>

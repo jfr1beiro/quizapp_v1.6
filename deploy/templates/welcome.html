@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo ao Quiz de Enfermagem!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .welcome-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .welcome-header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .welcome-emoji {
+            font-size: 4em;
+            margin-bottom: 15px;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .welcome-title {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        
+        .welcome-subtitle {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .welcome-form {
+            padding: 40px 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        .avatar-section {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .avatar-preview {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2em;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .avatar-preview:hover {
+            transform: scale(1.1);
+        }
+        
+        .avatar-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .avatar-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: all 0.3s;
+        }
+        
+        .avatar-option:hover, .avatar-option.selected {
+            border-color: #3498db;
+            transform: scale(1.1);
+        }
+        
+        .btn-comecar {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn-comecar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.3);
+        }
+        
+        .btn-comecar:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        .motivacao {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <div class="welcome-header">
+            <div class="welcome-emoji">👩‍⚕️</div>
+            <h1 class="welcome-title">Bem-vindo(a)!</h1>
+            <p class="welcome-subtitle">Vamos personalizar sua experiência de estudos</p>
+        </div>
+        
+        <form class="welcome-form" id="welcomeForm">
+            <div class="form-group">
+                <label for="nome">🏷️ Como você gostaria de ser chamado(a)?</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            </div>
+            
+            <div class="avatar-section">
+                <label>👤 Escolha seu avatar:</label>
+                <div class="avatar-preview" id="avatarPreview">👤</div>
+                <div class="avatar-options">
+                    <div class="avatar-option selected" data-avatar="👤">👤</div>
+                    <div class="avatar-option" data-avatar="👩‍⚕️">👩‍⚕️</div>
+                    <div class="avatar-option" data-avatar="👨‍⚕️">👨‍⚕️</div>
+                    <div class="avatar-option" data-avatar="🧑‍⚕️">🧑‍⚕️</div>
+                    <div class="avatar-option" data-avatar="👩‍🎓">👩‍🎓</div>
+                    <div class="avatar-option" data-avatar="👨‍🎓">👨‍🎓</div>
+                    <div class="avatar-option" data-avatar="🌟">🌟</div>
+                    <div class="avatar-option" data-avatar="💪">💪</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="instituicao">🏫 Instituição de Ensino:</label>
+                <input type="text" id="instituicao" name="instituicao" placeholder="Nome da sua faculdade/universidade">
+            </div>
+            
+            <div class="form-group">
+                <label for="periodo_cursando">📚 Qual período você está cursando?</label>
+                <select id="periodo_cursando" name="periodo_cursando">
+                    <option value="">Selecione seu período atual</option>
+                    <option value="1">1º Período</option>
+                    <option value="2">2º Período</option>
+                    <option value="3">3º Período</option>
+                    <option value="4">4º Período</option>
+                    <option value="5">5º Período</option>
+                    <option value="6">6º Período</option>
+                    <option value="7">7º Período</option>
+                    <option value="8">8º Período</option>
+                    <option value="9">9º Período</option>
+                    <option value="10">10º Período</option>
+                    <option value="formado">Já me formei</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="especializacao">🎯 Área de interesse/especialização:</label>
+                <select id="especializacao" name="especializacao">
+                    <option value="">Selecione uma área</option>
+                    <option value="uti">UTI/Terapia Intensiva</option>
+                    <option value="pediatria">Pediatria</option>
+                    <option value="obstetricia">Obstetrícia</option>
+                    <option value="cirurgica">Enfermagem Cirúrgica</option>
+                    <option value="psiquiatrica">Saúde Mental/Psiquiátrica</option>
+                    <option value="geriatria">Geriatria</option>
+                    <option value="emergencia">Emergência/Urgência</option>
+                    <option value="saude_publica">Saúde Pública</option>
+                    <option value="oncologia">Oncologia</option>
+                    <option value="cardiologia">Cardiologia</option>
+                    <option value="ainda_decidindo">Ainda estou decidindo</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-comecar">
+                🚀 Começar minha jornada de estudos!
+            </button>
+        </form>
+        
+        <div class="motivacao">
+            💡 "O conhecimento é a única coisa que ninguém pode tirar de você!"
+        </div>
+    </div>
+    
+    <script>
+        // Seleção de avatar
+        document.querySelectorAll('.avatar-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove seleção anterior
+                document.querySelectorAll('.avatar-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+                
+                // Seleciona novo avatar
+                this.classList.add('selected');
+                document.getElementById('avatarPreview').textContent = this.dataset.avatar;
+            });
+        });
+        
+        // Submit do formulário
+        document.getElementById('welcomeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const avatar = document.querySelector('.avatar-option.selected').dataset.avatar;
+            
+            const dadosUsuario = {
+                nome: formData.get('nome'),
+                avatar: avatar,
+                instituicao: formData.get('instituicao'),
+                periodo_cursando: formData.get('periodo_cursando'),
+                especializacao: formData.get('especializacao')
+            };
+            
+            // Salva no localStorage
+            localStorage.setItem('dadosUsuario', JSON.stringify(dadosUsuario));
+            
+            // Redireciona para página principal
+            window.location.href = '/dashboard';
+        });
+        
+        // Verifica se já tem dados salvos
+        window.addEventListener('load', function() {
+            const dadosSalvos = localStorage.getItem('dadosUsuario');
+            if (dadosSalvos) {
+                const dados = JSON.parse(dadosSalvos);
+                
+                // Preenche formulário
+                document.getElementById('nome').value = dados.nome || '';
+                document.getElementById('instituicao').value = dados.instituicao || '';
+                document.getElementById('periodo_cursando').value = dados.periodo_cursando || '';
+                document.getElementById('especializacao').value = dados.especializacao || '';
+                
+                // Seleciona avatar
+                if (dados.avatar) {
+                    document.querySelectorAll('.avatar-option').forEach(opt => {
+                        opt.classList.remove('selected');
+                        if (opt.dataset.avatar === dados.avatar) {
+                            opt.classList.add('selected');
+                            document.getElementById('avatarPreview').textContent = dados.avatar;
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

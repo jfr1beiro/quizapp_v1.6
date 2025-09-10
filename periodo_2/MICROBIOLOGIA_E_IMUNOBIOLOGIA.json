@@ -1,0 +1,1539 @@
+[
+    {
+      "pergunta": "Entre as barreiras da imunidade inata, qual combinação descreve corretamente barreiras físicas, químicas e biológicas que atuam de forma integrada nas superfícies mucosas?",
+      "opcoes": [
+        "Epitélio ciliado, pH ácido e microbiota comensal.",
+        "Mucina secretada, IgE tecidual e febre.",
+        "Tight junctions, IL-4 local e eosinófilos residentes.",
+        "Ceratina epidérmica, interferon-gama e neutrófilos circulantes."
+      ],
+      "resposta_correta": "Epitélio ciliado, pH ácido e microbiota comensal.",
+      "categoria": "Imunidade Inata e Barreiras",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Superfícies mucosas contam com epitélio ciliado para depuração mecânica, secreções com pH ácido para inibir patógenos e microbiota comensal que compete por nichos e nutrientes, dificultando a colonização de microrganismos patogênicos.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (slides de imunidade inata e barreiras)."
+    },
+    {
+      "pergunta": "Qual afirmação descreve com maior precisão o papel dos receptores de reconhecimento padrão (PRRs) na fase inicial da resposta imune inata?",
+      "opcoes": [
+        "PRRs reconhecem epítopos variáveis de anticorpos gerados por recombinação somática.",
+        "PRRs detectam PAMPs e DAMPs e iniciam vias de sinalização que induzem citocinas inflamatórias.",
+        "PRRs se restringem à membrana plasmática de neutrófilos e não atuam em endossomos.",
+        "PRRs dependem de apresentação antigênica por MHC II para ativar fagócitos."
+      ],
+      "resposta_correta": "PRRs detectam PAMPs e DAMPs e iniciam vias de sinalização que induzem citocinas inflamatórias.",
+      "categoria": "Receptores Inatos (PRRs)",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "PRRs (como TLRs, NLRs e RLRs) reconhecem padrões moleculares conservados (PAMPs) e sinais de dano (DAMPs), ativando cascatas que resultam em produção de citocinas e quimiocinas e na ativação de células inatas.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (PRRs, PAMPs/DAMPs)."
+    },
+    {
+      "pergunta": "No contexto da resposta inflamatória aguda, qual sequência melhor representa a cronologia de eventos no foco infeccioso?",
+      "opcoes": [
+        "Vasoconstrição sustentada → extravasamento de plasma → infiltração neutrofílica tardia.",
+        "Vasodilatação e aumento de permeabilidade → quimiotaxia → fagocitose e morte microbiana.",
+        "Depósito de colágeno imediato → ativação linfocitária → formação de granuloma.",
+        "Apoptose neutrofílica precoce → resolução → recrutamento monocitário inicial."
+      ],
+      "resposta_correta": "Vasodilatação e aumento de permeabilidade → quimiotaxia → fagocitose e morte microbiana.",
+      "categoria": "Inflamação Aguda",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Mediadores inflamatórios promovem vasodilatação e permeabilidade; quimiocinas direcionam leucócitos; em seguida, ocorre fagocitose com eliminação do patógeno por EROs, NO e enzimas lisossomais.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (resposta inflamatória e mediadores)."
+    },
+    {
+      "pergunta": "Quanto ao sistema complemento, qual via é corretamente pareada com seu iniciador clássico?",
+      "opcoes": [
+        "Via clássica — ligação direta do C3 à parede bacteriana.",
+        "Via alternativa — ligação de C1q ao complexo antígeno-anticorpo.",
+        "Via das lectinas — reconhecimento de manose por MBL em superfícies microbianas.",
+        "Via clássica — hidrólise espontânea de C3 (tick-over) no plasma."
+      ],
+      "resposta_correta": "Via das lectinas — reconhecimento de manose por MBL em superfícies microbianas.",
+      "categoria": "Sistema Complemento",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A via das lectinas é iniciada pela lectina ligante de manose (MBL) que reconhece resíduos de manose; a via clássica depende geralmente de C1q ligado a IgM/IgG, enquanto a alternativa se inicia por hidrólise espontânea de C3.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (vias do complemento)."
+    },
+    {
+      "pergunta": "Sobre neutrófilos e macrófagos, qual alternativa melhor diferencia sua atuação nos estágios iniciais da infecção bacteriana?",
+      "opcoes": [
+        "Neutrófilos predominam tardiamente e macrófagos chegam primeiro ao tecido.",
+        "Neutrófilos são os primeiros recrutados para fagocitose; macrófagos coordenam eliminação e resolução tecidual.",
+        "Neutrófilos apresentam antígenos por MHC II de modo eficiente; macrófagos raramente fagocitam.",
+        "Neutrófilos produzem citocinas anti-inflamatórias; macrófagos secretam apenas IL-10."
+      ],
+      "resposta_correta": "Neutrófilos são os primeiros recrutados para fagocitose; macrófagos coordenam eliminação e resolução tecidual.",
+      "categoria": "Células Inatas Efetoras",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Neutrófilos chegam cedo via quimiotaxia e fagocitam intensamente; macrófagos eliminam patógenos, removem debris e secretam mediadores que direcionam resolução e reparo.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (neutrófilos, monócitos/macrófagos)."
+    },
+    {
+      "pergunta": "Qual combinação entre PRR e seu ligante é mais apropriada no reconhecimento de vírus de RNA?",
+      "opcoes": [
+        "TLR4 — lipopolissacarídeo (LPS) de bactérias Gram-negativas.",
+        "TLR3/RIG-I — RNA de dupla fita ou de extremidade trifosfatada.",
+        "NOD2 — peptidoglicano de parede fúngica.",
+        "TLR5 — ácido teicoico de cocos Gram-positivos."
+      ],
+      "resposta_correta": "TLR3/RIG-I — RNA de dupla fita ou de extremidade trifosfatada.",
+      "categoria": "Reconhecimento de Padrões Virais",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "TLR3 detecta dsRNA em endossomos e RIG-I reconhece RNA viral com extremidades trifosfatadas no citoplasma, ativando respostas antivirais, como produção de interferons tipo I.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (TLRs, RLRs e antivírus)."
+    },
+    {
+      "pergunta": "Qual é a principal consequência funcional da opsonização por C3b na superfície de uma bactéria encapsulada?",
+      "opcoes": [
+        "Desvio da resposta para Th2 com produção de IL-4.",
+        "Aumento da fagocitose por receptores de complemento em fagócitos.",
+        "Inibição da inflamação por bloqueio de quimiocinas.",
+        "Ativação direta de linfócitos T citotóxicos CD8+."
+      ],
+      "resposta_correta": "Aumento da fagocitose por receptores de complemento em fagócitos.",
+      "categoria": "Complemento e Opsonização",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A deposição de C3b promove reconhecimento por receptores de complemento (CR1/CR3) em fagócitos, superando a barreira do cápsula bacteriana e facilitando a ingestão.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (C3b, CRs e fagocitose)."
+    },
+    {
+      "pergunta": "Em relação aos interferons tipo I (IFN-α/β), qual afirmação está mais correta no contexto de infecções virais precoces?",
+      "opcoes": [
+        "Promovem hiperexpressão de MHC II em hepatócitos, mas não induzem genes antivirais.",
+        "Ativam um programa antiviral por indução de ISGs e aumentam apresentação de antígenos via MHC I.",
+        "Inibem diretamente a quimiotaxia de neutrófilos e monócitos para limitar inflamação.",
+        "Atuam apenas em células NK e não afetam células epiteliais."
+      ],
+      "resposta_correta": "Ativam um programa antiviral por indução de ISGs e aumentam apresentação de antígenos via MHC I.",
+      "categoria": "Resposta Antiviral Inata",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "IFNs tipo I induzem genes estimulados por interferon (ISGs), elevam MHC I e estabelecem um estado antiviral em células vizinhas, além de modularem NK e respostas adaptativas.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (interferons tipo I)."
+    },
+    {
+      "pergunta": "Qual situação ilustra de forma mais fidedigna a função de células NK durante a fase inicial de uma infecção viral?",
+      "opcoes": [
+        "Desgranulação dependente de anticorpo via FcγR em processo de ADCC.",
+        "Reconhecimento de ‘missing-self’ com redução de MHC I e lise de células infectadas.",
+        "Produção de IgM específica por recombinação somática.",
+        "Apresentação eficiente de antígenos exógenos por MHC II a linfócitos T CD4+."
+      ],
+      "resposta_correta": "Reconhecimento de ‘missing-self’ com redução de MHC I e lise de células infectadas.",
+      "categoria": "Células NK e Vigilância",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "NKs detectam células com baixa expressão de MHC I (missing-self), comum em células infectadas por vírus, e promovem citotoxicidade sem receptor TCR específico.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (mecanismos de NK)."
+    },
+    {
+      "pergunta": "Qual par citocina-efeito está mais alinhado ao início e amplificação da inflamação na imunidade inata?",
+      "opcoes": [
+        "IL-10 — aumento da expressão de MHC II e coestimulação em APCs.",
+        "TNF — aumento de permeabilidade vascular e febre sistêmica.",
+        "TGF-β — quimiotaxia neutrofílica e pirose local.",
+        "IL-4 — ativação clássica de macrófagos M1 e necrose tecidual."
+      ],
+      "resposta_correta": "TNF — aumento de permeabilidade vascular e febre sistêmica.",
+      "categoria": "Citocinas Inatas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "TNF e IL-1/IL-6 são centrais na inflamação sistêmica: aumentam permeabilidade, induzem febre e expressão de moléculas de adesão endotelial para recrutamento leucocitário.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (citocinas pró-inflamatórias)."
+    },
+    {
+      "pergunta": "No contexto da fagocitose mediada por receptores, qual evento ocorre imediatamente após o fechamento do fagossomo?",
+      "opcoes": [
+        "Exocitose de grânulos contendo histamina para o meio extracelular.",
+        "Fusão do fagossomo com lisossomos, formando o fagolisossomo.",
+        "Abertura de canais de cálcio na membrana plasmática para quimiotaxia.",
+        "Ativação da recombinação somática em genes de imunoglobulinas."
+      ],
+      "resposta_correta": "Fusão do fagossomo com lisossomos, formando o fagolisossomo.",
+      "categoria": "Fagocitose e Mecanismos Microbicidas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Após internalização, o fagossomo se funde com lisossomos, permitindo a ação de enzimas hidrolíticas e espécies reativas que destroem o microrganismo.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (fagocitose e fagolisossomo)."
+    },
+    {
+      "pergunta": "Qual situação ilustra corretamente a ativação da via alternativa do complemento?",
+      "opcoes": [
+        "Ligação espontânea de C3b a superfície microbiana sem necessidade de anticorpos.",
+        "Reconhecimento de resíduos de manose por MBL.",
+        "Formação de complexo C1qrs após ligação a IgM.",
+        "Ativação de fator H pela presença de anticorpos específicos."
+      ],
+      "resposta_correta": "Ligação espontânea de C3b a superfície microbiana sem necessidade de anticorpos.",
+      "categoria": "Sistema Complemento - Via Alternativa",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A via alternativa é iniciada pela hidrólise espontânea de C3 no plasma e pela ligação de C3b a superfícies microbianas, amplificando a resposta sem participação de anticorpos.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (vias do complemento)."
+    },
+    {
+      "pergunta": "Entre as células apresentadoras de antígeno, qual apresenta antígenos por MHC II de forma mais eficiente e também ativa linfócitos T virgens?",
+      "opcoes": [
+        "Macrófagos residentes no tecido conjuntivo.",
+        "Células dendríticas maduras.",
+        "Células NK ativadas.",
+        "Neutrófilos polimorfonucleares."
+      ],
+      "resposta_correta": "Células dendríticas maduras.",
+      "categoria": "Apresentação de Antígenos",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As células dendríticas são especializadas em captura, processamento e apresentação de antígenos via MHC II, além de expressarem altos níveis de moléculas coestimuladoras para ativar linfócitos T virgens.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (APCs e MHC)."
+    },
+    {
+      "pergunta": "Qual é o efeito mais característico da ativação do receptor TLR4 em células fagocíticas após contato com bactérias Gram-negativas?",
+      "opcoes": [
+        "Inibição da expressão de MHC II.",
+        "Produção de citocinas pró-inflamatórias como TNF e IL-1.",
+        "Bloqueio da via alternativa do complemento.",
+        "Indução de apoptose imediata."
+      ],
+      "resposta_correta": "Produção de citocinas pró-inflamatórias como TNF e IL-1.",
+      "categoria": "PRRs e Resposta Inflamatória",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O TLR4 reconhece LPS de bactérias Gram-negativas, ativando NF-κB e resultando na produção de citocinas pró-inflamatórias que coordenam a resposta imune inicial.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (TLRs e LPS)."
+    },
+    {
+      "pergunta": "Qual evento caracteriza a atividade microbicida dependente de espécies reativas de oxigênio (EROs) em neutrófilos?",
+      "opcoes": [
+        "Produção de NO por óxido nítrico sintase induzida.",
+        "Explosão respiratória mediada por NADPH oxidase.",
+        "Secreção de histamina e leucotrienos.",
+        "Liberação de IL-4 para ativar macrófagos M2."
+      ],
+      "resposta_correta": "Explosão respiratória mediada por NADPH oxidase.",
+      "categoria": "Mecanismos Microbicidas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Durante a explosão respiratória, neutrófilos ativam NADPH oxidase, gerando EROs que danificam membranas e componentes microbianos.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (mecanismos de destruição microbiana)."
+    },
+    {
+      "pergunta": "Qual via do complemento é diretamente ativada por complexos antígeno-anticorpo?",
+      "opcoes": [
+        "Via clássica.",
+        "Via alternativa.",
+        "Via das lectinas.",
+        "Via terminal."
+      ],
+      "resposta_correta": "Via clássica.",
+      "categoria": "Sistema Complemento - Via Clássica",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A via clássica se inicia pela ligação de C1q a anticorpos IgM ou IgG ligados a antígenos, levando à ativação sequencial de C4, C2 e C3.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (ativação da via clássica)."
+    },
+    {
+      "pergunta": "Qual é a função mais associada à IL-12 na interface entre imunidade inata e adaptativa?",
+      "opcoes": [
+        "Induzir diferenciação de linfócitos T em Th1 e ativar células NK.",
+        "Estimular produção de IgE por linfócitos B.",
+        "Ativar eosinófilos contra helmintos.",
+        "Induzir apoptose de células T reguladoras."
+      ],
+      "resposta_correta": "Induzir diferenciação de linfócitos T em Th1 e ativar células NK.",
+      "categoria": "Citocinas de Interface Inata-Adaptativa",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A IL-12 produzida por células dendríticas e macrófagos favorece diferenciação Th1 e aumenta a citotoxicidade de NKs.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (IL-12 e respostas Th1)."
+    },
+    {
+      "pergunta": "O que distingue a ação da via terminal do complemento das demais fases?",
+      "opcoes": [
+        "Produção de quimiocinas.",
+        "Formação do complexo de ataque à membrana (MAC).",
+        "Opsonização de partículas.",
+        "Ativação de mastócitos."
+      ],
+      "resposta_correta": "Formação do complexo de ataque à membrana (MAC).",
+      "categoria": "Sistema Complemento - Via Terminal",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A via terminal culmina na formação do MAC (C5b-9), que perfura membranas de patógenos, causando lise osmótica.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (via terminal e MAC)."
+    },
+    {
+      "pergunta": "Qual característica define o reconhecimento de DAMPs por PRRs durante lesão tecidual estéril?",
+      "opcoes": [
+        "Detecção de padrões moleculares derivados de patógenos.",
+        "Reconhecimento de moléculas endógenas liberadas por células danificadas.",
+        "Dependência de anticorpos específicos para ativação.",
+        "Ação exclusiva de TLRs localizados na membrana plasmática."
+      ],
+      "resposta_correta": "Reconhecimento de moléculas endógenas liberadas por células danificadas.",
+      "categoria": "DAMPs e Inflamação Estéril",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "DAMPs são moléculas do próprio organismo que sinalizam dano tecidual, ativando PRRs e induzindo inflamação mesmo sem infecção.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (PAMPs x DAMPs)."
+    },
+    {
+      "pergunta": "Qual é o papel principal das quimiocinas na resposta inflamatória?",
+      "opcoes": [
+        "Promover vasoconstrição imediata no local da lesão.",
+        "Orientar migração direcionada de leucócitos para o foco inflamatório.",
+        "Ativar complemento pela via clássica.",
+        "Induzir apoptose de células infectadas."
+      ],
+      "resposta_correta": "Orientar migração direcionada de leucócitos para o foco inflamatório.",
+      "categoria": "Quimiocinas e Quimiotaxia",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Quimiocinas formam gradientes químicos que guiam leucócitos para o sítio de infecção ou inflamação.",
+      "referencia": "Aula de Introdução a Imunologia 2025 (quimiocinas e recrutamento celular)."
+    },
+    {
+      "pergunta": "No processo inflamatório agudo, qual alteração vascular é a primeira a ocorrer após o estímulo lesivo?",
+      "opcoes": [
+        "Aumento da permeabilidade vascular mediado por histamina.",
+        "Vasoconstrição transitória de arteríolas.",
+        "Adesão de leucócitos ao endotélio.",
+        "Formação de exsudato fibrinoso."
+      ],
+      "resposta_correta": "Vasoconstrição transitória de arteríolas.",
+      "categoria": "Resposta Inflamatória Aguda",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O primeiro evento vascular é a vasoconstrição arteriolar breve, seguida de vasodilatação e aumento da permeabilidade, facilitando o extravasamento de plasma e células.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Mecanismos da resposta inflamatória."
+    },
+    {
+      "pergunta": "Qual é a principal função da proteína C3b na resposta imune inata?",
+      "opcoes": [
+        "Neutralização de toxinas bacterianas.",
+        "Opsonização de microrganismos para fagocitose.",
+        "Ativação direta de linfócitos T citotóxicos.",
+        "Estímulo à produção de anticorpos IgA."
+      ],
+      "resposta_correta": "Opsonização de microrganismos para fagocitose.",
+      "categoria": "Sistema Complemento - Funções",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O C3b liga-se à superfície de patógenos e é reconhecido por receptores de fagócitos, facilitando a ingestão e destruição microbiana.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Funções efetoras do complemento."
+    },
+    {
+      "pergunta": "Durante a migração leucocitária, qual molécula é responsável pela adesão firme ao endotélio?",
+      "opcoes": [
+        "Selectinas.",
+        "Integrinas ativadas.",
+        "ICAM-1 solúvel.",
+        "Receptores Fcγ."
+      ],
+      "resposta_correta": "Integrinas ativadas.",
+      "categoria": "Migração Leucocitária",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As integrinas, ao serem ativadas por quimiocinas, ligam-se fortemente a moléculas de adesão como ICAM-1, permitindo a fixação do leucócito antes da diapedese.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Migração leucocitária."
+    },
+    {
+      "pergunta": "Qual componente do complemento atua como anafilatoxina e potente mediador inflamatório?",
+      "opcoes": [
+        "C3b.",
+        "C5a.",
+        "C6.",
+        "C9."
+      ],
+      "resposta_correta": "C5a.",
+      "categoria": "Sistema Complemento - Mediadores Inflamatórios",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O C5a estimula quimiotaxia de neutrófilos, aumenta a permeabilidade vascular e ativa mastócitos, amplificando a inflamação.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Anafilatoxinas."
+    },
+    {
+      "pergunta": "Em uma resposta contra bactérias encapsuladas, qual mecanismo da imunidade inata é mais prejudicado pela ausência de baço?",
+      "opcoes": [
+        "Produção de interferon-gama.",
+        "Fagocitose mediada por opsoninas.",
+        "Ativação de linfócitos T reguladores.",
+        "Produção de anticorpos IgE."
+      ],
+      "resposta_correta": "Fagocitose mediada por opsoninas.",
+      "categoria": "Deficiências Imunológicas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O baço é essencial para filtrar microrganismos do sangue e para a produção de opsoninas que favorecem a fagocitose, especialmente de bactérias encapsuladas.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Funções do baço na imunidade."
+    },
+    {
+      "pergunta": "Qual evento caracteriza a fase de rolling na migração de neutrófilos para tecidos inflamados?",
+      "opcoes": [
+        "Ligação transitória entre selectinas e seus ligantes nos leucócitos.",
+        "Formação de pseudópodes para atravessar o endotélio.",
+        "Estabilização da ligação por integrinas de alta afinidade.",
+        "Ativação do complemento na superfície endotelial."
+      ],
+      "resposta_correta": "Ligação transitória entre selectinas e seus ligantes nos leucócitos.",
+      "categoria": "Migração Leucocitária - Rolling",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O rolling é mediado por interações fracas e transitórias entre selectinas endoteliais e carboidratos dos leucócitos, permitindo sua desaceleração.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Etapas da migração leucocitária."
+    },
+    {
+      "pergunta": "Qual é o principal estímulo para produção de proteínas de fase aguda pelo fígado durante inflamação sistêmica?",
+      "opcoes": [
+        "IL-1.",
+        "IL-6.",
+        "TNF-alfa.",
+        "Interferon-gama."
+      ],
+      "resposta_correta": "IL-6.",
+      "categoria": "Proteínas de Fase Aguda",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A IL-6 induz a síntese de proteínas de fase aguda como PCR e fibrinogênio pelo fígado, auxiliando na resposta inflamatória sistêmica.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Proteínas de fase aguda."
+    },
+    {
+      "pergunta": "Qual característica diferencia os receptores de reconhecimento padrão (PRRs) dos receptores de linfócitos adaptativos?",
+      "opcoes": [
+        "Reconhecem antígenos específicos após rearranjo gênico.",
+        "Reconhecem padrões moleculares conservados compartilhados por patógenos.",
+        "Dependem de exposição prévia ao antígeno.",
+        "Produzem memória imunológica."
+      ],
+      "resposta_correta": "Reconhecem padrões moleculares conservados compartilhados por patógenos.",
+      "categoria": "PRRs - Características",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "PRRs, como TLRs, detectam estruturas invariantes presentes em grupos de patógenos, funcionando de forma imediata e não adaptativa.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — PRRs e PAMPs."
+    },
+    {
+      "pergunta": "O que diferencia a via das lectinas do complemento das demais vias?",
+      "opcoes": [
+        "Ativação por ligação direta de C3b à superfície microbiana.",
+        "Dependência da ligação de MBL a resíduos de manose microbianos.",
+        "Necessidade de anticorpos pré-existentes.",
+        "Produção exclusiva de C5b."
+      ],
+      "resposta_correta": "Dependência da ligação de MBL a resíduos de manose microbianos.",
+      "categoria": "Sistema Complemento - Via das Lectinas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A via das lectinas inicia-se quando MBL se liga a açúcares específicos da parede microbiana, ativando MASPs e subsequente clivagem de C4 e C2.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Vias do complemento."
+    },
+    {
+      "pergunta": "Qual é a função central das moléculas de adesão ICAM-1 no endotélio durante inflamação?",
+      "opcoes": [
+        "Facilitar a saída de proteínas plasmáticas para o tecido.",
+        "Promover adesão firme de leucócitos por ligação a integrinas.",
+        "Induzir apoptose de células epiteliais infectadas.",
+        "Estimular secreção de citocinas pró-inflamatórias."
+      ],
+      "resposta_correta": "Promover adesão firme de leucócitos por ligação a integrinas.",
+      "categoria": "Moléculas de Adesão - ICAM-1",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "ICAM-1 liga-se a integrinas ativadas nos leucócitos, estabilizando o contato célula-endotélio antes da transmigração.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Moléculas de adesão endotelial."
+    },
+    {
+      "pergunta": "Qual é a principal função dos receptores Toll-like (TLRs) na imunidade inata?",
+      "opcoes": [
+        "Promover a produção de anticorpos específicos contra antígenos.",
+        "Reconhecer padrões moleculares associados a patógenos e ativar respostas inflamatórias.",
+        "Ativar linfócitos T citotóxicos para destruir células infectadas.",
+        "Estimular a maturação de células dendríticas apenas no baço."
+      ],
+      "resposta_correta": "Reconhecer padrões moleculares associados a patógenos e ativar respostas inflamatórias.",
+      "categoria": "PRRs - TLRs",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Os TLRs detectam estruturas microbianas conservadas e ativam vias de sinalização que induzem a produção de citocinas inflamatórias.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Receptores de reconhecimento padrão."
+    },
+    {
+      "pergunta": "Qual componente do sistema complemento é essencial para a formação do complexo de ataque à membrana (MAC)?",
+      "opcoes": [
+        "C3a.",
+        "C5b.",
+        "C2a.",
+        "C4b."
+      ],
+      "resposta_correta": "C5b.",
+      "categoria": "Sistema Complemento - MAC",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O C5b inicia a montagem do complexo de ataque à membrana, recrutando C6, C7, C8 e múltiplas unidades de C9.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Complexo de ataque à membrana."
+    },
+    {
+      "pergunta": "Durante a ativação da via clássica do complemento, qual componente é clivado diretamente pela C1s?",
+      "opcoes": [
+        "C2 e C4.",
+        "C3 e C5.",
+        "C6 e C7.",
+        "C8 e C9."
+      ],
+      "resposta_correta": "C2 e C4.",
+      "categoria": "Sistema Complemento - Via Clássica",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Na via clássica, C1s cliva C4 e C2, formando a C3 convertase C4b2a, responsável por ativar C3.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Ativação da via clássica."
+    },
+    {
+      "pergunta": "Qual célula é a principal produtora de interferon tipo I durante infecções virais?",
+      "opcoes": [
+        "Linfócito T CD8+.",
+        "Células dendríticas plasmocitoides.",
+        "Neutrófilos ativados.",
+        "Mastócitos teciduais."
+      ],
+      "resposta_correta": "Células dendríticas plasmocitoides.",
+      "categoria": "Resposta Antiviral",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As células dendríticas plasmocitoides produzem grandes quantidades de interferon tipo I, inibindo a replicação viral.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Resposta imune contra vírus."
+    },
+    {
+      "pergunta": "Qual é o papel do receptor de manose (MR) presente em macrófagos?",
+      "opcoes": [
+        "Estimular apoptose em células infectadas.",
+        "Reconhecer carboidratos específicos na superfície de patógenos.",
+        "Ativar a produção de anticorpos IgE.",
+        "Induzir a liberação de histamina."
+      ],
+      "resposta_correta": "Reconhecer carboidratos específicos na superfície de patógenos.",
+      "categoria": "PRRs - Receptor de Manose",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O receptor de manose facilita a fagocitose de patógenos ao reconhecer açúcares específicos ausentes nas células hospedeiras.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — PRRs e receptores de lectina."
+    },
+    {
+      "pergunta": "Em relação à quimiotaxia, qual molécula do complemento é considerada o quimioatrator mais potente para neutrófilos?",
+      "opcoes": [
+        "C3a.",
+        "C5a.",
+        "C4a.",
+        "MBL."
+      ],
+      "resposta_correta": "C5a.",
+      "categoria": "Sistema Complemento - Quimiotaxia",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O C5a atrai neutrófilos para o local da infecção, aumentando sua ativação e capacidade microbicida.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Anafilatoxinas e quimiotaxia."
+    },
+    {
+      "pergunta": "Qual mecanismo permite que células NK distingam células normais de células infectadas ou tumorais?",
+      "opcoes": [
+        "Reconhecimento de peptídeos apresentados por MHC classe II.",
+        "Equilíbrio entre sinais ativadores e inibitórios via MHC classe I.",
+        "Ligação a receptores Fc de anticorpos.",
+        "Produção de IL-17."
+      ],
+      "resposta_correta": "Equilíbrio entre sinais ativadores e inibitórios via MHC classe I.",
+      "categoria": "Imunidade Inata - Células NK",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As NK detectam a redução de MHC I em células-alvo, favorecendo sinais ativadores que levam à lise celular.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Mecanismos de reconhecimento das NK."
+    },
+    {
+      "pergunta": "Na inflamação, qual é o principal efeito da histamina liberada por mastócitos?",
+      "opcoes": [
+        "Estimular a produção de interferon-gama.",
+        "Aumentar a permeabilidade vascular e causar vasodilatação.",
+        "Induzir apoptose em linfócitos B.",
+        "Promover a clivagem de C3."
+      ],
+      "resposta_correta": "Aumentar a permeabilidade vascular e causar vasodilatação.",
+      "categoria": "Mediadores Inflamatórios",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A histamina promove extravasamento de plasma e células para o tecido lesionado, contribuindo para edema e rubor.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Mastócitos e histamina."
+    },
+    {
+      "pergunta": "Qual enzima presente nos grânulos de neutrófilos é fundamental para a formação de espécies reativas de oxigênio?",
+      "opcoes": [
+        "Lisozima.",
+        "Mieloperoxidase.",
+        "Catalase.",
+        "Superóxido dismutase."
+      ],
+      "resposta_correta": "Mieloperoxidase.",
+      "categoria": "Mecanismos Microbicidas - Neutrófilos",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A mieloperoxidase converte peróxido de hidrogênio em ácido hipocloroso, potente agente microbicida.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Granulações e mecanismos oxidativos."
+    },
+    {
+      "pergunta": "Em relação ao processo de diapedese, qual molécula facilita a passagem de leucócitos entre células endoteliais?",
+      "opcoes": [
+        "PECAM-1 (CD31).",
+        "VCAM-1.",
+        "E-selectina.",
+        "MBL."
+      ],
+      "resposta_correta": "PECAM-1 (CD31).",
+      "categoria": "Migração Leucocitária - Diapedese",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A PECAM-1 é expressa tanto em leucócitos quanto no endotélio e participa da transmigração através das junções intercelulares.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Diapedese leucocitária."
+    },
+    {
+      "pergunta": "Durante a fagocitose, qual é a principal função do fagolisossomo?",
+      "opcoes": [
+        "Armazenar antígenos para apresentação via MHC II.",
+        "Fundir vesículas contendo patógenos com lisossomos para destruição enzimática.",
+        "Neutralizar toxinas bacterianas por anticorpos.",
+        "Ativar linfócitos T citotóxicos contra células infectadas."
+      ],
+      "resposta_correta": "Fundir vesículas contendo patógenos com lisossomos para destruição enzimática.",
+      "categoria": "Fagocitose - Fagolisossomo",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O fagolisossomo é resultado da fusão do fagossomo com lisossomos, onde enzimas hidrolíticas e radicais livres degradam o patógeno.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Etapas da fagocitose."
+    },
+    {
+      "pergunta": "Qual é a principal citocina secretada por macrófagos ativados que promove febre?",
+      "opcoes": [
+        "IL-1β.",
+        "IL-4.",
+        "IL-10.",
+        "TGF-β."
+      ],
+      "resposta_correta": "IL-1β.",
+      "categoria": "Citocinas - Inflamação Sistêmica",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A IL-1β atua no hipotálamo aumentando o ponto de ajuste da temperatura corporal, induzindo febre.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Citocinas pró-inflamatórias."
+    },
+    {
+      "pergunta": "Qual via do complemento é ativada diretamente pela ligação de anticorpos a antígenos?",
+      "opcoes": [
+        "Via alternativa.",
+        "Via clássica.",
+        "Via das lectinas.",
+        "Via terminal."
+      ],
+      "resposta_correta": "Via clássica.",
+      "categoria": "Sistema Complemento - Ativação",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A via clássica é iniciada quando C1q reconhece complexos antígeno-anticorpo, desencadeando a ativação em cascata.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Vias de ativação do complemento."
+    },
+    {
+      "pergunta": "Qual célula efetora da imunidade inata destrói células infectadas por meio da liberação de perforina e granzimas?",
+      "opcoes": [
+        "Macrófagos.",
+        "Células NK.",
+        "Neutrófilos.",
+        "Basófilos."
+      ],
+      "resposta_correta": "Células NK.",
+      "categoria": "Imunidade Inata - Citotoxicidade",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As células NK induzem apoptose em células-alvo liberando perforina, que forma poros, e granzimas, que ativam caspases.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Mecanismos de ação das NK."
+    },
+    {
+      "pergunta": "Na resposta imune inata, qual é a função principal das proteínas de fase aguda como a proteína C-reativa?",
+      "opcoes": [
+        "Ativar linfócitos T reguladores.",
+        "Opsonizar patógenos para facilitar a fagocitose.",
+        "Inibir a síntese de citocinas pró-inflamatórias.",
+        "Estimular a produção de anticorpos IgA."
+      ],
+      "resposta_correta": "Opsonizar patógenos para facilitar a fagocitose.",
+      "categoria": "Proteínas de Fase Aguda",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A PCR liga-se a fosfocolina em superfícies microbianas e ativa o complemento, promovendo a eliminação do patógeno.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Proteínas de fase aguda."
+    },
+    {
+      "pergunta": "Qual molécula atua como sinal de perigo endógeno (DAMP) durante lesão tecidual?",
+      "opcoes": [
+        "DNA bacteriano.",
+        "ATP extracelular.",
+        "Lipopolisacarídeo (LPS).",
+        "Ácido lipoteicoico."
+      ],
+      "resposta_correta": "ATP extracelular.",
+      "categoria": "Sinais de Perigo - DAMPs",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O ATP liberado de células lesionadas ativa receptores de purinas em células imunes, induzindo inflamação.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — DAMPs e PAMPs."
+    },
+    {
+      "pergunta": "Qual é a principal diferença entre neutrófilos e macrófagos na imunidade inata?",
+      "opcoes": [
+        "Neutrófilos vivem mais tempo e realizam apresentação antigênica, enquanto macrófagos são de vida curta.",
+        "Neutrófilos são recrutados rapidamente para inflamação aguda, enquanto macrófagos têm função prolongada e reguladora.",
+        "Macrófagos não realizam fagocitose, enquanto neutrófilos realizam.",
+        "Neutrófilos produzem anticorpos, enquanto macrófagos produzem citocinas."
+      ],
+      "resposta_correta": "Neutrófilos são recrutados rapidamente para inflamação aguda, enquanto macrófagos têm função prolongada e reguladora.",
+      "categoria": "Células Fagocíticas - Comparação",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Neutrófilos atuam precocemente e são de vida curta, enquanto macrófagos permanecem no tecido e participam da resolução da inflamação.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Fagócitos na imunidade inata."
+    },
+    {
+      "pergunta": "Em infecções bacterianas, qual citocina é fundamental para ativar macrófagos clássicos (M1)?",
+      "opcoes": [
+        "IL-4.",
+        "IL-13.",
+        "IFN-γ.",
+        "IL-10."
+      ],
+      "resposta_correta": "IFN-γ.",
+      "categoria": "Ativação de Macrófagos",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O IFN-γ, produzido por linfócitos NK e T, ativa macrófagos para aumentar a capacidade microbicida.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Ativação de macrófagos M1."
+    },
+    {
+      "pergunta": "Qual é a consequência da ausência do receptor CXCR2 em neutrófilos?",
+      "opcoes": [
+        "Perda da capacidade de migrar para locais de infecção.",
+        "Aumento da produção de anticorpos IgM.",
+        "Falta de ativação do complemento.",
+        "Incapacidade de apresentar antígenos via MHC I."
+      ],
+      "resposta_correta": "Perda da capacidade de migrar para locais de infecção.",
+      "categoria": "Migração Leucocitária - Quimiocinas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O CXCR2 é um receptor de quimiocinas essencial para orientar neutrófilos ao foco inflamatório.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Quimiotaxia e receptores de quimiocinas."
+    },
+    {
+      "pergunta": "Qual fator solúvel da imunidade inata pode neutralizar toxinas bacterianas extracelulares?",
+      "opcoes": [
+        "Defensinas.",
+        "Proteína C-reativa.",
+        "Anticorpos IgE.",
+        "C5b."
+      ],
+      "resposta_correta": "Proteína C-reativa.",
+      "categoria": "Imunidade Inata - Proteínas Solúveis",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A PCR pode se ligar a toxinas bacterianas, neutralizando seus efeitos e promovendo sua remoção pelo complemento.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Proteínas solúveis e imunidade inata."
+    },
+    {
+      "pergunta": "Qual é a principal função das células dendríticas foliculares nos centros germinativos?",
+      "opcoes": [
+        "Apresentar antígenos processados via MHC II para linfócitos T.",
+        "Apresentar antígenos intactos para linfócitos B.",
+        "Produzir citocinas anti-inflamatórias como IL-10.",
+        "Ativar macrófagos para fagocitose de patógenos."
+      ],
+      "resposta_correta": "Apresentar antígenos intactos para linfócitos B.",
+      "categoria": "Resposta Imune Adaptativa - Centros Germinativos",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As células dendríticas foliculares retêm antígenos na sua forma nativa para seleção de linfócitos B de alta afinidade nos centros germinativos.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Função das células dendríticas foliculares."
+    },
+    {
+      "pergunta": "Qual imunoglobulina é predominante nas mucosas e atua na neutralização de patógenos na superfície epitelial?",
+      "opcoes": [
+        "IgM.",
+        "IgA.",
+        "IgG.",
+        "IgE."
+      ],
+      "resposta_correta": "IgA.",
+      "categoria": "Imunidade de Mucosas - Imunoglobulinas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A IgA secretora impede a adesão de microrganismos às células epiteliais, sendo crucial na defesa das mucosas.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Funções da IgA."
+    },
+    {
+      "pergunta": "No processo de maturação de afinidade, qual mecanismo celular está envolvido na seleção de linfócitos B?",
+      "opcoes": [
+        "Recombinação V(D)J.",
+        "Hipermutação somática.",
+        "Apoptose dependente de Fas.",
+        "Expressão de MHC I."
+      ],
+      "resposta_correta": "Hipermutação somática.",
+      "categoria": "Resposta Imune Adaptativa - Maturação de Afinidade",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A hipermutação somática altera a região variável das imunoglobulinas, permitindo seleção de clones B com maior afinidade.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Maturação de afinidade."
+    },
+    {
+      "pergunta": "Qual subpopulação de linfócitos T auxilia diretamente na ativação de macrófagos para eliminação de patógenos intracelulares?",
+      "opcoes": [
+        "T CD4+ Th1.",
+        "T CD4+ Th2.",
+        "T CD4+ Th17.",
+        "T CD8+."
+      ],
+      "resposta_correta": "T CD4+ Th1.",
+      "categoria": "Imunidade Celular - Th1",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As células Th1 produzem IFN-γ, ativando macrófagos a aumentar a destruição de microrganismos fagocitados.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Funções dos linfócitos Th1."
+    },
+    {
+      "pergunta": "Durante uma resposta imune secundária, qual é a principal característica da produção de anticorpos?",
+      "opcoes": [
+        "Predomínio de IgM de baixa afinidade.",
+        "Predomínio de IgG de alta afinidade.",
+        "Produção exclusiva de IgE.",
+        "Predomínio de IgA monomérica."
+      ],
+      "resposta_correta": "Predomínio de IgG de alta afinidade.",
+      "categoria": "Resposta Imune Secundária - Anticorpos",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A resposta secundária apresenta produção mais rápida e intensa de IgG de alta afinidade devido à memória imunológica.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Resposta secundária."
+    },
+    {
+      "pergunta": "Qual é a função da IL-17 secretada por linfócitos Th17?",
+      "opcoes": [
+        "Estimular produção de muco por células epiteliais.",
+        "Induzir quimiocinas que recrutam neutrófilos.",
+        "Ativar macrófagos para fagocitose.",
+        "Inibir diferenciação de linfócitos B."
+      ],
+      "resposta_correta": "Induzir quimiocinas que recrutam neutrófilos.",
+      "categoria": "Imunidade Adaptativa - Th17",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A IL-17 promove a produção de quimiocinas pró-inflamatórias, recrutando neutrófilos para combater patógenos extracelulares.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Função da IL-17."
+    },
+    {
+      "pergunta": "Qual é o papel da comutação de classe (class switch) nas respostas de linfócitos B?",
+      "opcoes": [
+        "Alterar a especificidade antigênica do anticorpo.",
+        "Trocar o tipo de cadeia pesada produzida sem mudar a especificidade.",
+        "Promover apoptose de células B autorreativas.",
+        "Gerar células NK de memória."
+      ],
+      "resposta_correta": "Trocar o tipo de cadeia pesada produzida sem mudar a especificidade.",
+      "categoria": "Imunidade Adaptativa - Comutação de Classe",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A comutação de classe permite que a célula B produza diferentes isotipos de anticorpos mantendo a mesma especificidade antigênica.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Comutação de classe."
+    },
+    {
+      "pergunta": "Qual componente do sistema imune é responsável pela rejeição rápida de enxertos em indivíduos previamente sensibilizados?",
+      "opcoes": [
+        "Resposta imune inata.",
+        "Resposta imune humoral mediada por anticorpos.",
+        "Ativação de complemento pela via alternativa.",
+        "Produção de interferon tipo I."
+      ],
+      "resposta_correta": "Resposta imune humoral mediada por anticorpos.",
+      "categoria": "Imunologia de Transplantes - Rejeição",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A rejeição hiperaguda é mediada por anticorpos pré-formados que ativam o complemento e lesam o endotélio do enxerto.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Rejeição de transplantes."
+    },
+    {
+      "pergunta": "Qual é o mecanismo de ação da perforina liberada por células T citotóxicas?",
+      "opcoes": [
+        "Induzir apoptose por via intrínseca mitocondrial.",
+        "Formar poros na membrana da célula-alvo para entrada de granzimas.",
+        "Ativar o complemento na superfície celular.",
+        "Bloquear receptores de crescimento celular."
+      ],
+      "resposta_correta": "Formar poros na membrana da célula-alvo para entrada de granzimas.",
+      "categoria": "Citotoxicidade - Perforina",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A perforina cria canais na membrana das células-alvo, permitindo que granzimas entrem e induzam apoptose.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Mecanismo de ação da perforina."
+    },
+    {
+      "pergunta": "Qual mecanismo de tolerância central elimina linfócitos T autorreativos no timo?",
+      "opcoes": [
+        "Edição de receptor.",
+        "Apoptose por deleção clonal.",
+        "Supressão por células T reguladoras.",
+        "Anergia funcional."
+      ],
+      "resposta_correta": "Apoptose por deleção clonal.",
+      "categoria": "Tolerância Imunológica - Central",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A deleção clonal remove linfócitos T que reconhecem fortemente antígenos próprios no timo, prevenindo autoimunidade.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Mecanismos de tolerância central."
+    },
+    {
+      "pergunta": "Qual é o principal papel das células T reguladoras (Treg) na homeostase imunológica?",
+      "opcoes": [
+        "Estimular produção de anticorpos IgE.",
+        "Induzir apoptose de células infectadas por vírus.",
+        "Suprimir respostas imunes excessivas e prevenir autoimunidade.",
+        "Ativar o sistema complemento para eliminar patógenos."
+      ],
+      "resposta_correta": "Suprimir respostas imunes excessivas e prevenir autoimunidade.",
+      "categoria": "Imunorregulação - Treg",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As células Treg produzem citocinas anti-inflamatórias como IL-10 e TGF-β, regulando a intensidade da resposta imune.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Funções das células T reguladoras."
+    },
+    {
+      "pergunta": "No contexto de hipersensibilidade imediata (Tipo I), qual célula é a principal responsável pela liberação de histamina?",
+      "opcoes": [
+        "Neutrófilo.",
+        "Mastócito.",
+        "Macrófago.",
+        "Linfócito B."
+      ],
+      "resposta_correta": "Mastócito.",
+      "categoria": "Hipersensibilidade - Tipo I",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Os mastócitos possuem receptores FcεRI que se ligam a IgE; quando o antígeno se liga, ocorre degranulação e liberação de histamina.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Hipersensibilidade tipo I."
+    },
+    {
+      "pergunta": "Qual mecanismo imunológico está mais associado à destruição de helmintos?",
+      "opcoes": [
+        "Produção de IgM pentamérica.",
+        "Ativação de eosinófilos mediada por IgE.",
+        "Formação de NETs por neutrófilos.",
+        "Ativação da via clássica do complemento."
+      ],
+      "resposta_correta": "Ativação de eosinófilos mediada por IgE.",
+      "categoria": "Imunidade contra parasitas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A ligação de IgE aos helmintos e aos receptores Fcε em eosinófilos induz liberação de grânulos tóxicos que danificam o parasita.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Defesa contra helmintos."
+    },
+    {
+      "pergunta": "Durante uma resposta imune adaptativa, qual citocina é mais associada ao desvio para um perfil Th2?",
+      "opcoes": [
+        "IL-4.",
+        "IL-2.",
+        "IFN-γ.",
+        "TNF-α."
+      ],
+      "resposta_correta": "IL-4.",
+      "categoria": "Diferenciação de Linfócitos T - Th2",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A IL-4 induz a diferenciação de linfócitos T CD4+ em células Th2, promovendo imunidade humoral e ativação de eosinófilos.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Diferenciação Th1/Th2."
+    },
+    {
+      "pergunta": "Qual é a função primária das células NK na defesa contra infecções virais?",
+      "opcoes": [
+        "Produzir anticorpos IgG.",
+        "Reconhecer e matar células infectadas sem necessidade de sensibilização prévia.",
+        "Ativar linfócitos B por apresentação de antígenos.",
+        "Produzir IL-17 para recrutar neutrófilos."
+      ],
+      "resposta_correta": "Reconhecer e matar células infectadas sem necessidade de sensibilização prévia.",
+      "categoria": "Imunidade Inata - NK",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As células NK detectam a ausência de MHC I e eliminam células infectadas ou tumorais por liberação de perforina e granzimas.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Funções das células NK."
+    },
+    {
+      "pergunta": "Na imunidade contra fungos, qual resposta de linfócitos T é mais eficaz?",
+      "opcoes": [
+        "Resposta Th1 com produção de IFN-γ.",
+        "Resposta Th2 com produção de IL-4.",
+        "Resposta Th17 com produção de IL-17.",
+        "Resposta Treg com produção de IL-10."
+      ],
+      "resposta_correta": "Resposta Th1 com produção de IFN-γ.",
+      "categoria": "Imunidade contra Fungos",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O IFN-γ ativa macrófagos para destruição de fungos intracelulares e é crucial na imunidade contra micoses sistêmicas.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Defesa contra fungos."
+    },
+    {
+      "pergunta": "Qual evento caracteriza a hipersensibilidade do tipo II?",
+      "opcoes": [
+        "Formação de imunocomplexos circulantes.",
+        "Destruição de células por anticorpos ligados a antígenos de membrana.",
+        "Liberação de histamina por mastócitos.",
+        "Resposta tardia mediada por linfócitos T."
+      ],
+      "resposta_correta": "Destruição de células por anticorpos ligados a antígenos de membrana.",
+      "categoria": "Hipersensibilidade - Tipo II",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "No tipo II, anticorpos IgG ou IgM se ligam a antígenos celulares, ativando complemento ou células NK para destruição.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Mecanismos de hipersensibilidade tipo II."
+    },
+    {
+      "pergunta": "Qual é a característica fundamental da hipersensibilidade do tipo IV?",
+      "opcoes": [
+        "Resposta mediada por anticorpos IgE.",
+        "Ativação de linfócitos T efetores e macrófagos.",
+        "Formação de imunocomplexos.",
+        "Ativação imediata do complemento."
+      ],
+      "resposta_correta": "Ativação de linfócitos T efetores e macrófagos.",
+      "categoria": "Hipersensibilidade - Tipo IV",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A hipersensibilidade tardia envolve ativação de linfócitos T e macrófagos, causando inflamação local após 24–72 horas.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Hipersensibilidade tipo IV."
+    },
+    {
+      "pergunta": "Qual citocina é essencial para a sobrevivência e proliferação de linfócitos T após ativação?",
+      "opcoes": [
+        "IL-2.",
+        "IL-4.",
+        "IL-6.",
+        "IL-10."
+      ],
+      "resposta_correta": "IL-2.",
+      "categoria": "Ativação de Linfócitos T - Citocinas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A IL-2 atua de forma autócrina e parácrina, promovendo proliferação e diferenciação de linfócitos T ativados.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Função da IL-2."
+    },
+    {
+      "pergunta": "Qual característica diferencia a resposta imune secundária da primária?",
+      "opcoes": [
+        "Produção inicial de IgM seguida de IgG.",
+        "Maior afinidade dos anticorpos e produção mais rápida de IgG.",
+        "Predomínio de resposta celular sobre humoral.",
+        "Ativação exclusiva de linfócitos T naïve."
+      ],
+      "resposta_correta": "Maior afinidade dos anticorpos e produção mais rápida de IgG.",
+      "categoria": "Resposta Imune Secundária",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Na resposta secundária, as células de memória produzem anticorpos de maior afinidade e em maior quantidade, com predomínio de IgG logo no início.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Imunidade adaptativa e memória."
+    },
+    {
+      "pergunta": "Qual é o principal mecanismo pelo qual as vacinas de microrganismos atenuados induzem imunidade duradoura?",
+      "opcoes": [
+        "Estimulação contínua de linfócitos naïve.",
+        "Indução de células de memória e resposta imune semelhante à infecção natural.",
+        "Produção exclusiva de anticorpos IgM.",
+        "Bloqueio da resposta inata."
+      ],
+      "resposta_correta": "Indução de células de memória e resposta imune semelhante à infecção natural.",
+      "categoria": "Vacinas Atenuadas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Vacinas atenuadas mimetizam a infecção, estimulando resposta humoral e celular robusta e duradoura.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Tipos de vacinas."
+    },
+    {
+      "pergunta": "Em transplantes, qual tipo de rejeição ocorre horas após o procedimento devido a anticorpos pré-existentes?",
+      "opcoes": [
+        "Rejeição hiperaguda.",
+        "Rejeição aguda.",
+        "Rejeição crônica.",
+        "Doença do enxerto contra o hospedeiro."
+      ],
+      "resposta_correta": "Rejeição hiperaguda.",
+      "categoria": "Imunologia de Transplantes",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A rejeição hiperaguda resulta da ligação imediata de anticorpos pré-formados ao endotélio do enxerto, ativando o complemento.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Tipos de rejeição."
+    },
+    {
+      "pergunta": "Qual citocina é fundamental para a comutação de classe de IgM para IgE?",
+      "opcoes": [
+        "IL-4.",
+        "IL-2.",
+        "IFN-γ.",
+        "TNF-α."
+      ],
+      "resposta_correta": "IL-4.",
+      "categoria": "Troca de Classe de Imunoglobulinas",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A IL-4, produzida por células Th2, estimula linfócitos B a trocar a produção de IgM para IgE, importante na resposta contra parasitas e alergias.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Citocinas e comutação de classe."
+    },
+    {
+      "pergunta": "Na imunidade adaptativa, o que caracteriza a fase de expansão clonal?",
+      "opcoes": [
+        "Aumento no número de linfócitos específicos após ativação por antígeno.",
+        "Morte programada de linfócitos autorreativos.",
+        "Produção de anticorpos inespecíficos.",
+        "Ativação de células NK."
+      ],
+      "resposta_correta": "Aumento no número de linfócitos específicos após ativação por antígeno.",
+      "categoria": "Expansão Clonal",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Durante a expansão clonal, os linfócitos ativados proliferam, aumentando a população específica contra o antígeno.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Dinâmica da resposta adaptativa."
+    },
+    {
+      "pergunta": "Qual é a principal diferença entre imunidade ativa e passiva?",
+      "opcoes": [
+        "Na ativa, há produção própria de resposta imune; na passiva, há transferência de anticorpos prontos.",
+        "Na ativa, a proteção é imediata; na passiva, é tardia.",
+        "A imunidade passiva envolve apenas resposta celular.",
+        "A imunidade ativa não gera memória imunológica."
+      ],
+      "resposta_correta": "Na ativa, há produção própria de resposta imune; na passiva, há transferência de anticorpos prontos.",
+      "categoria": "Tipos de Imunidade",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Na imunidade ativa, o organismo monta sua própria resposta, enquanto na passiva recebe anticorpos prontos, como na transferência materna.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Imunidade ativa e passiva."
+    },
+    {
+      "pergunta": "Qual molécula do MHC apresenta antígenos endógenos para linfócitos T CD8+?",
+      "opcoes": [
+        "MHC classe I.",
+        "MHC classe II.",
+        "CD4.",
+        "CD28."
+      ],
+      "resposta_correta": "MHC classe I.",
+      "categoria": "Apresentação de Antígenos",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O MHC classe I apresenta peptídeos derivados do citoplasma para linfócitos T CD8+, induzindo resposta citotóxica.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — MHC I e II."
+    },
+    {
+      "pergunta": "Qual é o mecanismo central da imunidade contra vírus intracelulares?",
+      "opcoes": [
+        "Produção de anticorpos IgA nas mucosas.",
+        "Ativação de linfócitos T CD8+ citotóxicos.",
+        "Produção de IgM pentamérica.",
+        "Ativação de eosinófilos."
+      ],
+      "resposta_correta": "Ativação de linfócitos T CD8+ citotóxicos.",
+      "categoria": "Imunidade Antiviral",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Os linfócitos T CD8+ reconhecem células infectadas pelo MHC I e induzem apoptose, eliminando o vírus.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Resposta imune contra vírus."
+    },
+    {
+      "pergunta": "Na resposta de memória, qual célula é responsável pela rápida produção de grandes quantidades de anticorpos?",
+      "opcoes": [
+        "Plasmócitos de memória.",
+        "Linfócitos T CD4+.",
+        "Macrófagos ativados.",
+        "Células dendríticas."
+      ],
+      "resposta_correta": "Plasmócitos de memória.",
+      "categoria": "Memória Imunológica",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Plasmócitos de memória permanecem no organismo após a infecção inicial e produzem anticorpos rapidamente na reexposição.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Células de memória."
+    },
+    {
+      "pergunta": "Qual é a função da IL-12 na resposta imune adaptativa?",
+      "opcoes": [
+        "Estimular diferenciação de linfócitos T CD4+ em Th1.",
+        "Promover troca de classe de IgM para IgE.",
+        "Induzir apoptose de linfócitos B autorreativos.",
+        "Ativar eosinófilos contra parasitas."
+      ],
+      "resposta_correta": "Estimular diferenciação de linfócitos T CD4+ em Th1.",
+      "categoria": "Citocinas - Diferenciação Th1",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A IL-12, produzida por células apresentadoras de antígeno, promove o perfil Th1, importante na imunidade contra patógenos intracelulares.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Citocinas Th1/Th2."
+    },
+    {
+      "pergunta": "Em que situação a imunidade passiva artificial é indicada?",
+      "opcoes": [
+        "Prevenção imediata após exposição a toxinas.",
+        "Prevenção de doenças endêmicas com vacinação.",
+        "Manutenção da memória imunológica a longo prazo.",
+        "Estimulação da imunidade celular contra vírus."
+      ],
+      "resposta_correta": "Prevenção imediata após exposição a toxinas.",
+      "categoria": "Imunidade Passiva Artificial",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A imunidade passiva artificial envolve administração de anticorpos prontos, como soros antitoxinas, para proteção imediata.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Tipos de imunidade."
+    },
+    {
+      "pergunta": "Qual tipo de hipersensibilidade está envolvido na asma alérgica?",
+      "opcoes": [
+        "Tipo I.",
+        "Tipo II.",
+        "Tipo III.",
+        "Tipo IV."
+      ],
+      "resposta_correta": "Tipo I.",
+      "categoria": "Hipersensibilidade - Asma",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A asma alérgica é mediada por IgE e ativação de mastócitos, levando à broncoconstrição e inflamação das vias aéreas.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Hipersensibilidade tipo I."
+    },
+    {
+      "pergunta": "Qual é o principal objetivo das vacinas de subunidade?",
+      "opcoes": [
+        "Induzir imunidade com uso de partes específicas do patógeno.",
+        "Gerar infecção controlada para estimular resposta natural.",
+        "Ativar apenas imunidade inata.",
+        "Induzir tolerância imunológica."
+      ],
+      "resposta_correta": "Induzir imunidade com uso de partes específicas do patógeno.",
+      "categoria": "Vacinas de Subunidade",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Vacinas de subunidade utilizam antígenos purificados para induzir resposta adaptativa sem risco de causar a doença.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Tipos de vacinas."
+    },
+    {
+      "pergunta": "Qual célula apresenta antígenos para linfócitos T CD4+ via MHC classe II?",
+      "opcoes": [
+        "Célula dendrítica.",
+        "Linfócito T CD8+.",
+        "Neutrófilo.",
+        "Eosinófilo."
+      ],
+      "resposta_correta": "Célula dendrítica.",
+      "categoria": "Apresentação de Antígenos - MHC II",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As células dendríticas processam antígenos extracelulares e os apresentam no MHC II para linfócitos T CD4+.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — MHC e apresentação antigênica."
+    },
+    {
+      "pergunta": "Na hipersensibilidade tipo III, qual é o evento patológico principal?",
+      "opcoes": [
+        "Deposição de imunocomplexos nos tecidos.",
+        "Produção de IgE específica.",
+        "Ativação direta de mastócitos.",
+        "Citotoxicidade mediada por linfócitos T CD8+."
+      ],
+      "resposta_correta": "Deposição de imunocomplexos nos tecidos.",
+      "categoria": "Hipersensibilidade - Tipo III",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Imunocomplexos circulantes se depositam em vasos e órgãos, ativando o complemento e causando inflamação.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Hipersensibilidade tipo III."
+    },
+    {
+      "pergunta": "Qual mecanismo de evasão imune é utilizado por muitos vírus?",
+      "opcoes": [
+        "Redução da expressão de MHC I.",
+        "Aumento da produção de IgM.",
+        "Ativação de eosinófilos.",
+        "Produção de IL-4."
+      ],
+      "resposta_correta": "Redução da expressão de MHC I.",
+      "categoria": "Evasão Imunológica - Vírus",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A diminuição do MHC I impede o reconhecimento por linfócitos T CD8+, dificultando a eliminação viral.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Evasão de patógenos."
+    },
+    {
+      "pergunta": "O que caracteriza a imunodeficiência primária?",
+      "opcoes": [
+        "Defeito congênito no sistema imune.",
+        "Supressão imune por medicamentos.",
+        "Infecção adquirida que compromete a imunidade.",
+        "Deficiência de vitamina D."
+      ],
+      "resposta_correta": "Defeito congênito no sistema imune.",
+      "categoria": "Imunodeficiências Primárias",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As imunodeficiências primárias são causadas por mutações genéticas que afetam o desenvolvimento ou função de células imunes.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Imunodeficiências."
+    },
+    {
+      "pergunta": "Qual é o objetivo da imunoterapia com anticorpos monoclonais em câncer?",
+      "opcoes": [
+        "Estimular o sistema imune a atacar células tumorais.",
+        "Bloquear a resposta imune contra tumores.",
+        "Aumentar a tolerância imunológica.",
+        "Inibir a produção de citocinas inflamatórias."
+      ],
+      "resposta_correta": "Estimular o sistema imune a atacar células tumorais.",
+      "categoria": "Imunoterapia - Câncer",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Anticorpos monoclonais podem reconhecer antígenos tumorais e ativar células citotóxicas para destruir o câncer.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Imunoterapia."
+    },
+    {
+      "pergunta": "Qual é o papel do co-receptor CD28 na ativação de linfócitos T?",
+      "opcoes": [
+        "Fornecer sinal coestimulatóro essencial para ativação completa.",
+        "Induzir apoptose de linfócitos ativados.",
+        "Promover a troca de classe de imunoglobulinas.",
+        "Inibir a apresentação de antígenos."
+      ],
+      "resposta_correta": "Fornecer sinal coestimulatóro essencial para ativação completa.",
+      "categoria": "Ativação de Linfócitos T",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O CD28 liga-se a moléculas B7 em células apresentadoras de antígeno, gerando sinal coestimulador necessário para evitar anergia dos linfócitos T.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Sinalização de linfócitos T."
+    },
+    {
+      "pergunta": "Qual mecanismo é fundamental na tolerância central dos linfócitos T?",
+      "opcoes": [
+        "Seleção negativa no timo.",
+        "Produção de anticorpos bloqueadores.",
+        "Ativação de células NK.",
+        "Expressão aumentada de MHC I."
+      ],
+      "resposta_correta": "Seleção negativa no timo.",
+      "categoria": "Tolerância Imunológica",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Na tolerância central, linfócitos T autorreativos são eliminados no timo durante a maturação para prevenir autoimunidade.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Tolerância central."
+    },
+    {
+      "pergunta": "Qual tipo de hipersensibilidade envolve linfócitos T e resposta tardia?",
+      "opcoes": [
+        "Tipo IV.",
+        "Tipo II.",
+        "Tipo I.",
+        "Tipo III."
+      ],
+      "resposta_correta": "Tipo IV.",
+      "categoria": "Hipersensibilidade - Tipo IV",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A hipersensibilidade do tipo IV é mediada por células T, com resposta inflamatória que ocorre 24–72 horas após a exposição ao antígeno.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Hipersensibilidade celular."
+    },
+    {
+      "pergunta": "Qual é a principal função das células T reguladoras (Treg)?",
+      "opcoes": [
+        "Suprimir respostas imunes excessivas e prevenir autoimunidade.",
+        "Ativar eosinófilos contra helmintos.",
+        "Estimular a comutação para IgA.",
+        "Aumentar a apresentação de antígenos via MHC II."
+      ],
+      "resposta_correta": "Suprimir respostas imunes excessivas e prevenir autoimunidade.",
+      "categoria": "Células Treg",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "As células Treg limitam a ativação imune, evitando danos teciduais e mantendo a tolerância imunológica.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Regulação da resposta imune."
+    },
+    {
+      "pergunta": "Em imunologia tumoral, o que significa imunovigilância?",
+      "opcoes": [
+        "Capacidade do sistema imune de reconhecer e eliminar células tumorais.",
+        "Inibição da resposta imune contra tumores.",
+        "Produção de citocinas para induzir apoptose de linfócitos.",
+        "Neutralização de toxinas tumorais."
+      ],
+      "resposta_correta": "Capacidade do sistema imune de reconhecer e eliminar células tumorais.",
+      "categoria": "Imunologia Tumoral",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "A imunovigilância refere-se à detecção e destruição de células alteradas antes que se desenvolvam em tumores clínicos.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Imunologia do câncer."
+    },
+    {
+      "pergunta": "O que caracteriza uma resposta imune humoral dependente de células T?",
+      "opcoes": [
+        "Necessidade de ajuda de linfócitos T CD4+ para ativar linfócitos B.",
+        "Ativação direta de linfócitos B por antígenos polissacarídicos.",
+        "Produção de anticorpos IgM sem troca de classe.",
+        "Resposta rápida e inespecífica."
+      ],
+      "resposta_correta": "Necessidade de ajuda de linfócitos T CD4+ para ativar linfócitos B.",
+      "categoria": "Resposta Humoral Dependente de T",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Nessa resposta, linfócitos B requerem sinais de células T auxiliares para proliferar e diferenciar-se em plasmócitos de alta afinidade.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Resposta humoral adaptativa."
+    },
+    {
+      "pergunta": "Qual componente do complemento é fundamental para a opsonização de patógenos?",
+      "opcoes": [
+        "C3b.",
+        "C5a.",
+        "C9.",
+        "C1q."
+      ],
+      "resposta_correta": "C3b.",
+      "categoria": "Sistema Complemento - Opsonização",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O C3b se liga à superfície dos patógenos, facilitando sua fagocitose por neutrófilos e macrófagos.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Funções do complemento."
+    },
+    {
+      "pergunta": "Qual fator contribui para a variabilidade dos receptores de células T (TCR)?",
+      "opcoes": [
+        "Rearranjo somático dos genes do TCR.",
+        "Mutação somática de alta taxa.",
+        "Clivagem proteolítica.",
+        "Edição antigênica."
+      ],
+      "resposta_correta": "Rearranjo somático dos genes do TCR.",
+      "categoria": "Diversidade de TCR",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "O rearranjo dos segmentos gênicos V(D)J gera diversidade nos receptores de células T, permitindo o reconhecimento de múltiplos antígenos.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Diversidade imunológica."
+    },
+    {
+      "pergunta": "Qual é a principal função dos linfócitos T citotóxicos?",
+      "opcoes": [
+        "Induzir apoptose em células infectadas ou tumorais.",
+        "Produzir anticorpos de alta afinidade.",
+        "Ativar macrófagos para fagocitose.",
+        "Neutralizar toxinas bacterianas."
+      ],
+      "resposta_correta": "Induzir apoptose em células infectadas ou tumorais.",
+      "categoria": "Linfócitos T CD8+",
+      "periodo": 2,
+      "disciplina": "MICROBIOLOGIA E IMUNOBIOLOGIA",
+      "dificuldade": "dificil",
+      "explicacao": "Os linfócitos T citotóxicos liberam perforinas e granzimas que destroem células-alvo infectadas ou neoplásicas.",
+      "referencia": "Aula de Introdução a Imunologia 2025 — Funções de linfócitos T CD8+."
+    }
+  ]
+  

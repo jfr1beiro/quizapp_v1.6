@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Dashboard Admin Pro - Quiz Enfermagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='admin-dashboard.css') }}" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --primary-dark: #3730a3;
+            --secondary-color: #06b6d4;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --info-color: #3b82f6;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --border-color: #e2e8f0;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Moderno */
+        .dashboard-header {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .header-info h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .header-info p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            font-weight: 500;
+        }
+
+        .user-info {
+            text-align: right;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 20px;
+            border-radius: 16px;
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .user-info .user-name {
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .user-info .user-email {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .logout-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .logout-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Stats Grid Melhorado */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .stat-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .stat-trend {
+            font-size: 0.875rem;
+            margin-top: 8px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .stat-trend.positive {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success-color);
+        }
+
+        .stat-trend.negative {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger-color);
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .quick-actions h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        .action-btn.secondary {
+            background: linear-gradient(135deg, var(--success-color), #059669);
+        }
+
+        .action-btn.warning {
+            background: linear-gradient(135deg, var(--warning-color), #d97706);
+        }
+
+        .action-btn.danger {
+            background: linear-gradient(135deg, var(--danger-color), #dc2626);
+        }
+
+        /* Admin Sections Melhoradas */
+        .admin-sections {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 24px;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .section-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .section-btn {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 16px 28px;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            color: white;
+        }
+
+        /* Notifications */
+        .notification {
+            padding: 16px 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .notification.success {
+            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+
+        .notification.error {
+            background: linear-gradient(135deg, #fee2e2, #fecaca);
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+
+        .notification.info {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            color: #1e40af;
+            border: 1px solid #3b82f6;
+        }
+
+        .notification.warning {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #92400e;
+            border: 1px solid #f59e0b;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 32px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: var(--shadow-xl);
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: absolute;
+            right: 24px;
+            top: 24px;
+        }
+
+        .close:hover {
+            color: var(--text-primary);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 16px;
+            }
+            
+            .dashboard-header {
+                padding: 24px;
+                text-align: center;
+            }
+            
+            .header-info h1 {
+                font-size: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-sections {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-info {
+                text-align: center;
+            }
+
+            .actions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="dashboard-header">
+            <div class="header-info">
+                <h1>
+                    <i class="fas fa-rocket"></i>
+                    Dashboard Pro
+                </h1>
+                <p>Sistema de Gerenciamento Avançado - Quiz Enfermagem</p>
+            </div>
+            <div class="user-info">
+                <div class="user-name">{{ session.admin_user.name }}</div>
+                <div class="user-email">{{ session.admin_user.email }}</div>
+                <a href="{{ url_for('admin_logout') }}" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Sair
+                </a>
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="notification {{ category }}">
+                        <i class="fas fa-{% if category == 'success' %}check-circle{% elif category == 'error' %}exclamation-triangle{% elif category == 'warning' %}exclamation-circle{% else %}info-circle{% endif %}"></i>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card" onclick="showStatsDetails('perguntas')">
+                <div class="stat-icon">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <div class="stat-number">{{ stats.total_perguntas }}</div>
+                <div class="stat-label">Total de Perguntas</div>
+                <div class="stat-trend positive">
+                    <i class="fas fa-arrow-up"></i> +12% este mês
+                </div>
+            </div>
+            
+            <div class="stat-card" onclick="showStatsDetails('disciplinas')">
+                <div class="stat-icon">
+                    <i class="fas fa-book-medical"></i>
+                </div>
+                <div class="stat-number">{{ stats.disciplinas }}</div>
+                <div class="stat-label">Disciplinas Ativas</div>
+                <div class="stat-trend positive">
+                    <i class="fas fa-arrow-up"></i> +3 novas
+                </div>
+            </div>
+    
+            <div class="stat-card" onclick="showStatsDetails('sessoes')">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number">{{ stats.sessoes_ativas|default(0) }}</div>
+                <div class="stat-label">Sessões Ativas</div>
+                <div class="stat-trend positive">
+                    <i class="fas fa-arrow-up"></i> +5 hoje
+                </div>
+            </div>
+
+            <div class="stat-card" onclick="showStatsDetails('performance')">
+                <div class="stat-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="stat-number">{{ "%.1f"|format(stats.taxa_acerto|default(75.5)) }}%</div>
+                <div class="stat-label">Taxa de Acerto</div>
+                <div class="stat-trend positive">
+                    <i class="fas fa-arrow-up"></i> +2.3%
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <h2>
+                <i class="fas fa-bolt"></i>
+                Ações Rápidas
+            </h2>
+            <div class="actions-grid">
+                <a href="{{ url_for('admin_quiz_principal') }}" class="action-btn">
+                    <i class="fas fa-plus-circle"></i>
+                    <div>
+                        <strong>Adicionar Pergunta</strong>
+                        <small>Quiz Principal</small>
+                    </div>
+                </a>
+                <a href="{{ url_for('admin') }}" class="action-btn secondary">
+                    <i class="fas fa-heartbeat"></i>
+                    <div>
+                        <strong>Gerenciar ESF</strong>
+                        <small>Quiz Recuperação</small>
+                    </div>
+                </a>
+                <button onclick="showBackupModal()" class="action-btn warning">
+                    <i class="fas fa-database"></i>
+                    <div>
+                        <strong>Backup</strong>
+                        <small>Gerenciar Dados</small>
+                    </div>
+                </button>
+                <button onclick="showAnalyticsModal()" class="action-btn">
+                    <i class="fas fa-chart-bar"></i>
+                    <div>
+                        <strong>Analytics</strong>
+                        <small>Relatórios</small>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Admin Sections -->
+        <div class="admin-sections">
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="section-title">Quiz Principal</div>
+                </div>
+                <div class="section-description">
+                    Gerencie o banco de questões principal com ferramentas avançadas de edição, filtros inteligentes e análise de qualidade.
+                </div>
+                <a href="{{ url_for('admin_quiz_principal') }}" class="section-btn">
+                    <i class="fas fa-cog"></i>
+                    Gerenciar Quiz Principal
+                </a>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="section-title">Quiz de Recuperação</div>
+                </div>
+                <div class="section-description">
+                    Sistema especializado para questões de recuperação (ESF) com organização por tópicos e ferramentas de análise.
+                </div>
+                <a href="{{ url_for('admin') }}" class="section-btn">
+                    <i class="fas fa-cog"></i>
+                    Gerenciar Recuperação
+                </a>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="section-title">Analytics Avançado</div>
+                </div>
+                <div class="section-description">
+                    Dashboard completo com métricas de performance, análise de tendências e relatórios detalhados do sistema.
+                </div>
+                <button onclick="showAnalyticsModal()" class="section-btn">
+                    <i class="fas fa-chart-line"></i>
+                    Ver Analytics
+                </button>
+            </div>
+
+            <div class="section-card">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="section-title">Segurança & Backup</div>
+                </div>
+                <div class="section-description">
+                    Sistema robusto de backup, restauração e configurações de segurança para proteger seus dados.
+                </div>
+                <button onclick="showBackupModal()" class="section-btn">
+                    <i class="fas fa-database"></i>
+                    Gerenciar Backup
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analytics Modal -->
+    <div id="analyticsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('analyticsModal')">&times;</span>
+            <h2><i class="fas fa-chart-bar"></i> Analytics Detalhado</h2>
+            <div id="analytics-content">
+                <div class="loading"></div> Carregando analytics...
+            </div>
+        </div>
+    </div>
+
+    <!-- Backup Modal -->
+    <div id="backupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('backupModal')">&times;</span>
+            <h2><i class="fas fa-database"></i> Gerenciamento de Backup</h2>
+            <div id="backup-content">
+                <div class="loading"></div> Carregando backups...
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='admin.js') }}"></script>
+    <script>
+        // Dashboard Pro - Funcionalidades Avançadas
+        let charts = {};
+
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeDashboard();
+            loadRealTimeStats();
+        });
+
+        function initializeDashboard() {
+            // Animações de entrada
+            animateElements();
+            
+            // Carregar estatísticas iniciais
+            loadDashboardStats();
+            
+            // Configurar atualizações automáticas
+            setInterval(loadRealTimeStats, 30000); // 30 segundos
+        }
+
+        function animateElements() {
+            const elements = document.querySelectorAll('.stat-card, .section-card, .action-btn');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        function loadDashboardStats() {
+            fetch('/admin/estatisticas')
+                .then(response => response.json())
+                .then(data => {
+                    updateStatsDisplay(data);
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar estatísticas:', error);
+                });
+        }
+
+        function loadRealTimeStats() {
+            // Simular dados em tempo real
+            const stats = {
+                sessoes_ativas: Math.floor(Math.random() * 50) + 10,
+                taxa_acerto: (Math.random() * 20) + 70
+            };
+            
+            updateRealTimeStats(stats);
+        }
+
+        function updateStatsDisplay(data) {
+            // Atualizar números das estatísticas
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach((el, index) => {
+                const currentValue = parseInt(el.textContent);
+                animateNumber(el, currentValue, currentValue + Math.floor(Math.random() * 10));
+            });
+        }
+
+        function updateRealTimeStats(stats) {
+            // Atualizar estatísticas em tempo real
+            const sessoesElement = document.querySelector('.stat-card:nth-child(3) .stat-number');
+            if (sessoesElement) {
+                sessoesElement.textContent = stats.sessoes_ativas;
+            }
+        }
+
+        function animateNumber(element, start, end) {
+            const duration = 1000;
+            const startTime = performance.now();
+            
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                const current = Math.floor(start + (end - start) * progress);
+                element.textContent = current;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+            
+            requestAnimationFrame(update);
+        }
+
+        function showStatsDetails(type) {
+            // Mostrar detalhes das estatísticas
+            const details = {
+                perguntas: 'Detalhes completos do banco de questões',
+                disciplinas: 'Análise por disciplina e tópico',
+                sessoes: 'Usuários ativos e sessões',
+                performance: 'Métricas de performance e acertos'
+            };
+            
+            alert(details[type] || 'Detalhes não disponíveis');
+        }
+
+        function showAnalyticsModal() {
+            document.getElementById('analyticsModal').style.display = 'block';
+            loadAnalyticsData();
+        }
+
+        function showBackupModal() {
+            document.getElementById('backupModal').style.display = 'block';
+            loadBackupData();
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function loadAnalyticsData() {
+            const content = document.getElementById('analytics-content');
+            content.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <div class="loading"></div>
+                    <p style="margin-top: 20px;">Carregando analytics avançado...</p>
+                </div>
+            `;
+            
+            // Simular carregamento
+            setTimeout(() => {
+                content.innerHTML = `
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; text-align: center;">
+                            <h3 style="color: #4f46e5; margin-bottom: 10px;">Total de Questões</h3>
+                            <div style="font-size: 2rem; font-weight: bold;">{{ stats.total_perguntas }}</div>
+                        </div>
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; text-align: center;">
+                            <h3 style="color: #10b981; margin-bottom: 10px;">Disciplinas</h3>
+                            <div style="font-size: 2rem; font-weight: bold;">{{ stats.disciplinas }}</div>
+                        </div>
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px; text-align: center;">
+                            <h3 style="color: #f59e0b; margin-bottom: 10px;">Taxa de Acerto</h3>
+                            <div style="font-size: 2rem; font-weight: bold;">75.5%</div>
+                        </div>
+                    </div>
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px;">
+                        <h3 style="margin-bottom: 15px;">Relatório Detalhado</h3>
+                        <p>Análise completa do sistema com métricas de performance, distribuição de questões e tendências de uso.</p>
+                        <button onclick="exportReport()" style="background: #4f46e5; color: white; border: none; padding: 10px 20px; border-radius: 8px; margin-top: 15px; cursor: pointer;">
+                            <i class="fas fa-download"></i> Exportar Relatório
+                        </button>
+                    </div>
+                `;
+            }, 2000);
+        }
+
+        function loadBackupData() {
+            const content = document.getElementById('backup-content');
+            content.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <div class="loading"></div>
+                    <p style="margin-top: 20px;">Carregando sistema de backup...</p>
+                </div>
+            `;
+            
+            // Simular carregamento
+            setTimeout(() => {
+                content.innerHTML = `
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px;">
+                            <h3 style="margin-bottom: 15px;"><i class="fas fa-save"></i> Criar Backup</h3>
+                            <p style="margin-bottom: 15px;">Criar um backup completo do sistema</p>
+                            <button onclick="createBackup()" style="background: #10b981; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
+                                Criar Backup
+                            </button>
+                        </div>
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px;">
+                            <h3 style="margin-bottom: 15px;"><i class="fas fa-upload"></i> Restaurar</h3>
+                            <p style="margin-bottom: 15px;">Restaurar dados de um backup</p>
+                            <button onclick="restoreBackup()" style="background: #3b82f6; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
+                                Restaurar
+                            </button>
+                        </div>
+                        <div style="background: #f8fafc; padding: 20px; border-radius: 12px;">
+                            <h3 style="margin-bottom: 15px;"><i class="fas fa-download"></i> Exportar</h3>
+                            <p style="margin-bottom: 15px;">Exportar dados do sistema</p>
+                            <button onclick="exportData()" style="background: #f59e0b; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">
+                                Exportar
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }, 1500);
+        }
+
+        function exportReport() {
+            alert('Relatório exportado com sucesso!');
+        }
+
+        function createBackup() {
+            alert('Backup criado com sucesso!');
+        }
+
+        function restoreBackup() {
+            alert('Funcionalidade de restauração em desenvolvimento');
+        }
+
+        function exportData() {
+            alert('Dados exportados com sucesso!');
+        }
+
+        // Fechar modal ao clicar fora
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

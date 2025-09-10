@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo Projeto Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> <!-- Exemplo de CSS -->
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo ao Novo Projeto Quiz!</h1>
+    </header>
+    <main>
+        <p>Total de perguntas carregadas: {{ total_perguntas }}</p>
+
+        <h2>Quiz Principal</h2>
+        <p>Inicie um quiz com perguntas gerais.</p>
+        <a href="{{ url_for('iniciar_quiz') }}">Iniciar Quiz Geral</a>
+
+        <h2>Quiz de Recuperação por Disciplina e Tópico</h2>
+        {% if disciplinas_recuperacao %}
+            <p>Escolha uma disciplina para iniciar um quiz de recuperação:</p>
+            <ul>
+            {% for disciplina in disciplinas_recuperacao %}
+                <li><a href="#">{{ disciplina }}</a></li> {# Estes links precisarão ser atualizados para listar tópicos #}
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>Nenhuma disciplina de recuperação disponível no momento.</p>
+        {% endif %}
+
+        {# Futuramente, adicionar filtros para o Quiz Principal por Período/Disciplina #}
+        {# Exemplo: <a href="{{ url_for('iniciar_quiz', periodo=1, disciplina='Biologia Celular') }}">Quiz Biologia Celular - Período 1</a> #}
+
+    </main>
+    <footer>
+        <p>&copy; 2024 Seu Nome/Organização</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Recuperação</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 20px; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            min-height: 100vh; 
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        .quiz-header { 
+            background: white; 
+            border-radius: 10px; 
+            padding: 20px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+        .quiz-card { 
+            background: white; 
+            border-radius: 10px; 
+            padding: 30px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+        }
+        .pergunta { 
+            font-size: 18px; 
+            font-weight: bold; 
+            margin-bottom: 25px; 
+            line-height: 1.5; 
+            color: #333; 
+        }
+        .opcoes {
+            max-height: 40vh;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding-right: 8px;
+        }
+        .opcao { margin: 10px 0; }
+        .opcao label { 
+            display: block; 
+            padding: 15px; 
+            background: #f8f9fa; 
+            border: 2px solid #e9ecef; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            transition: all 0.3s; 
+        }
+        .opcao label:hover { 
+            background: #e3f2fd; 
+            border-color: #2196f3; 
+        }
+        .opcao input[type="radio"] { margin-right: 10px; }
+        .btn { 
+            background: #2196f3; 
+            color: white; 
+            padding: 12px 30px; 
+            border: none; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 16px; 
+            margin: 10px 5px; 
+        }
+        .btn:hover { background: #1976d2; }
+        .btn:disabled { background: #ccc; cursor: not-allowed; }
+        .progress { 
+            background: #e0e0e0; 
+            height: 8px; 
+            border-radius: 4px; 
+            margin: 20px 0; 
+            overflow: hidden; 
+        }
+        .progress-bar { 
+            background: #4caf50; 
+            height: 100%; 
+            transition: width 0.3s; 
+        }
+        .loading { text-align: center; padding: 40px; }
+        .spinner { 
+            border: 4px solid #f3f3f3; 
+            border-top: 4px solid #3498db; 
+            border-radius: 50%; 
+            width: 40px; 
+            height: 40px; 
+            animation: spin 2s linear infinite; 
+            margin: 0 auto; 
+        }
+        @keyframes spin { 
+            0% { transform: rotate(0deg); } 
+            100% { transform: rotate(360deg); } 
+        }
+        .modo-recuperacao { 
+            background: #fff3cd; 
+            border: 1px solid #ffeaa7; 
+            color: #856404; 
+            padding: 10px; 
+            border-radius: 5px; 
+            margin-bottom: 15px; 
+        }
+        .info-pergunta { 
+            background: #e8f5e8; 
+            border-left: 4px solid #4caf50; 
+            padding: 15px; 
+            margin: 15px 0; 
+            border-radius: 0 5px 5px 0; 
+        }
+        .feedback { 
+            margin-top: 20px; 
+            padding: 15px; 
+            border-radius: 5px; 
+            display: none; 
+        }
+        .feedback.correto { 
+            background: #d4edda; 
+            border: 1px solid #c3e6cb; 
+            color: #155724; 
+        }
+        .feedback.incorreto { 
+            background: #f8d7da; 
+            border: 1px solid #f5c6cb; 
+            color: #721c24; 
+        }
+        .explicacao { 
+            margin-top: 10px; 
+            font-style: italic; 
+        }
+        .referencia { 
+            margin-top: 10px; 
+            font-size: 12px; 
+            color: #666; 
+        }
+        .quiz-card .controls {
+            position: sticky;
+            bottom: 0;
+            background: rgba(255,255,255,0.95);
+            padding: 15px 0 0 0;
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        @media (max-width: 600px) {
+            .opcoes {
+                max-height: 50vh;
+            }
+            .quiz-card .controls {
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Cabeçalho -->
+        <div class="quiz-header">
+            <div class="modo-recuperacao">
+                🔄 <strong>Modo Recuperação</strong> - Sem limite de tempo
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h2 style="margin: 0;">Quiz de Recuperação</h2>
+                    <p style="margin: 5px 0; color: #666;">Disciplina: <strong id="disciplina-nome">Carregando...</strong></p>
+                    <p style="margin: 5px 0; color: #666;">Tópico: <strong id="topico-nome">Carregando...</strong></p>
+                </div>
+                <div style="text-align: right;">
+                    <div style="font-size: 24px; font-weight: bold; color: #4caf50;">
+                        <span id="pontos">0</span> pontos
+                    </div>
+                    <div style="color: #666;">
+                        Pergunta <span id="numero-pergunta">0</span> de <span id="total-perguntas">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Card do Quiz -->
+        <div class="quiz-card" id="quiz-container">
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                <p>Carregando pergunta...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let perguntaAtual = null;
+        let respostaSelecionada = null;
+
+        // Inicia o quiz
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Iniciando quiz de recuperação');
+            carregarProximaPergunta();
+            iniciarTimer();
+            atualizarTimer();
+            // Auto-leitura se configurado
+            let dadosUsuario = {};
+            try {
+                dadosUsuario = JSON.parse(localStorage.getItem('dadosUsuario')) || {};
+            } catch(e) {}
+            if (dadosUsuario.ler_perguntas) {
+                setTimeout(() => {
+                    if (typeof lerPerguntaEOpcoes === 'function') lerPerguntaEOpcoes();
+                }, 1000);
+            }
+        });
+
+        function carregarProximaPergunta() {
+            console.log('Carregando próxima pergunta...');
+            
+            document.getElementById('quiz-container').innerHTML = `
+                <div class="loading">
+                    <div class="spinner"></div>
+                    <p>Carregando pergunta...</p>
+                </div>
+            `;
+
+            fetch('/proxima_pergunta')
+                .then(response => {
+                    console.log('Resposta recebida:', response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Dados da pergunta:', data);
+                    
+                    if (data.erro) {
+                        console.error('Erro:', data.erro);
+                        mostrarErro(data.erro);
+                        return;
+                    }
+
+                    if (data.fim) {
+                        console.log('Quiz finalizado');
+                        window.location.href = '/resultado';
+                        return;
+                    }
+
+                    perguntaAtual = data.pergunta;
+                    respostaSelecionada = null;
+                    
+                    // Atualiza cabeçalho
+                    document.getElementById('disciplina-nome').textContent = data.pergunta.disciplina || 'N/A';
+                    document.getElementById('topico-nome').textContent = data.pergunta.topico || 'N/A';
+                    document.getElementById('pontos').textContent = data.pontos || 0;
+                    document.getElementById('numero-pergunta').textContent = data.numero || 0;
+                    document.getElementById('total-perguntas').textContent = data.total || 0;
+                    
+                    // Atualiza progresso
+                    const progresso = ((data.numero || 0) / (data.total || 1)) * 100;
+                    document.getElementById('progress-bar').style.width = progresso + '%';
+                    
+                    mostrarPergunta(data);
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar pergunta:', error);
+                    mostrarErro('Erro ao carregar pergunta: ' + error.message);
+                });
+        }
+
+        function mostrarPergunta(data) {
+            console.log('Mostrando pergunta:', data.pergunta.pergunta.substring(0, 50) + '...');
+            
+            let opcoesHtml = '';
+            data.pergunta.opcoes.forEach((opcao, index) => {
+                const letra = String.fromCharCode(65 + index); // A, B, C, D
+                opcoesHtml += `
+                    <li class="opcao">
+                        <label>
+                            <input type="radio" name="resposta" value="${letra}" onchange="selecionarResposta('${letra}')">
+                            <strong>${letra})</strong> ${opcao}
+                        </label>
+                    </li>
+                `;
+            });
+
+            const html = `
+                <div class="pergunta">${data.pergunta.pergunta}</div>
+                
+                <ul class="opcoes">
+                    ${opcoesHtml}
+                </ul>
+
+                <div class="info-pergunta">
+                    <strong>Categoria:</strong> ${data.pergunta.categoria || 'N/A'} | 
+                    <strong>Dificuldade:</strong> ${data.pergunta.dificuldade || 'Médio'}
+                </div>
+
+                <div class="feedback" id="feedback"></div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn" id="btn-responder" onclick="responder()" disabled>
+                        Responder
+                    </button>
+                    <button class="btn" id="btn-proxima" onclick="carregarProximaPergunta()" style="display: none;">
+                        Próxima Pergunta
+                    </button>
+                </div>
+            `;
+
+            document.getElementById('quiz-container').innerHTML = html;
+        }
+
+        function selecionarResposta(letra) {
+            respostaSelecionada = letra;
+            document.getElementById('btn-responder').disabled = false;
+            console.log('Resposta selecionada:', letra);
+        }
+
+        function responder() {
+            if (!respostaSelecionada) {
+                alert('Por favor, selecione uma resposta.');
+                return;
+            }
+
+            console.log('Enviando resposta:', respostaSelecionada);
+
+            const dados = {
+                resposta: respostaSelecionada,
+                resposta_correta: perguntaAtual.resposta_correta,
+                opcoes: perguntaAtual.opcoes
+            };
+
+            fetch('/responder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(dados)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Resposta processada:', data);
+                
+                if (data.erro) {
+                    alert('Erro: ' + data.erro);
+                    return;
+                }
+
+                mostrarFeedback(data);
+                
+                // Atualiza pontos
+                document.getElementById('pontos').textContent = data.pontos || 0;
+                
+                // Desabilita opções e botão responder
+                document.querySelectorAll('input[name="resposta"]').forEach(input => {
+                    input.disabled = true;
+                });
+                document.getElementById('btn-responder').style.display = 'none';
+                document.getElementById('btn-proxima').style.display = 'inline-block';
+            })
+            .catch(error => {
+                console.error('Erro ao processar resposta:', error);
+                alert('Erro ao processar resposta: ' + error.message);
+            });
+        }
+
+        function mostrarFeedback(data) {
+            const feedback = document.getElementById('feedback');
+            const correto = data.correto;
+            
+            let html = `
+                <div class="${correto ? 'correto' : 'incorreto'}">
+                    <strong>${correto ? '✅ Correto!' : '❌ Incorreto!'}</strong><br>
+                    Resposta correta: <strong>${data.resposta_correta}) ${data.resposta_correta_texto}</strong>
+            `;
+            
+            if (data.explicacao) {
+                html += `<div class="explicacao"><strong>Explicação:</strong> ${data.explicacao}</div>`;
+            }
+            
+            if (data.referencia) {
+                html += `<div class="referencia"><strong>Referência:</strong> ${data.referencia}</div>`;
+            }
+            
+            html += '</div>';
+            
+            feedback.innerHTML = html;
+            feedback.style.display = 'block';
+        }
+
+        function mostrarErro(mensagem) {
+            document.getElementById('quiz-container').innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <h3 style="color: #d32f2f;">❌ Erro</h3>
+                    <p>${mensagem}</p>
+                    <button type="button" class="btn secondary" onclick="voltarInicio()">
+                        <i class="fas fa-home"></i>
+                        Voltar ao Início
+                    </button>
+                </div>
+            `;
+        }
+
+        function voltarInicio() {
+            if (confirm('Tem certeza que deseja sair do quiz? Seu progresso será perdido e você voltará ao início.')) {
+                window.location.href = '/';
+            }
+        }
+
+        function finalizarQuiz() {
+            if (confirm('Deseja realmente finalizar o quiz e ver o relatório?')) {
+                const sessionId = '{{ session_id }}';
+                window.location.href = '/finalizar_quiz?session_id=' + sessionId;
+            }
+        }
+    </script>
+</body>
+</html>
